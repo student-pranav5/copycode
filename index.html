@@ -1,0 +1,1411 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Copy Text Buttons</title>
+    <style>
+        button {
+            margin: 5px;
+        }
+
+        body {
+            background-color: #f0f0f0;
+            /* Light gray background */
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        button {
+            margin: 10px;
+            padding: 10px;
+            font-size: 16px;
+            background-color: #ddd;
+            /* Light gray button background */
+            border: 1px solid #aaa;
+            /* Dark gray border */
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #ccc;
+            /* Slightly darker background on hover */
+        }
+    </style>
+</head>
+
+<body>
+
+    <button onclick="copyText(text1)">3aActivity Life cycle</button>
+    <button onclick=" copyText(text2)">3b Life Cycle of Fragments and Multiple Fragments</button>
+    <button onclick="copyText(text3)">4a linear layout</button>
+    <button onclick="copyText(text4)">4b relative layout</button>
+    <button onclick="copyText(text5)">4c table </button>
+    <button onclick="copyText(text6)">4d grid view</button>
+    <button onclick="copyText(text7)">5 manu bar </button>
+    <button onclick="copyText(text8)">6 dialogue & framgremt</button>
+    <button onclick="copyText(text9)">7 intent event listner </button>
+    <button onclick="copyText(text10)">8 notification </button>
+    <button onclick="copyText(text11)">broadcast recever </button>
+    <p id="copiedMsg"></p>
+    <script>
+
+        var text1= `
+        ACTIVITY_MAIN.XML
+
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="766_Amit"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+MAINACTIVITY.JAVA
+
+package com.example.practical3;
+
+import androidx.appcompat.app.AppCompatActivity;
+import android.widget.Toast;
+import android.os.Bundle;
+import android.util.Log;
+
+public class MainActivity extends AppCompatActivity {
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        Log.d("Calling onCreate()","1) OnCreate() Excuted...");
+        Toast.makeText(getApplicationContext(),"1) onCreate() Excuted..",Toast.LENGTH_LONG).show();
+    }
+
+    @Override
+        protected void onStart() {
+        super.onStart();
+        Log.d("Calling onStart()","1) OnStart() Excuted...");
+        Toast.makeText(getApplicationContext(),"1) OnStart() Excuted...",Toast.LENGTH_LONG).show();
+    }
+
+
+        protected void OnResume() {
+        super.onResume();
+        Log.d("Calling onResume()", "1) OnResume() Excuted..");
+        Toast.makeText(getApplicationContext(),"1) onResume() Excuted..",Toast.LENGTH_LONG).show();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        Log.d("Calling onPause()", "1) onPause() Excuted..");
+        Toast.makeText(getApplicationContext(), "1) onPause() Excuted..",Toast.LENGTH_LONG).show();
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        Log.d("Calling onRestart","1) onRestart() Excuted...");
+        Toast.makeText(getApplicationContext(), "1) onRestart() Excuted..",Toast.LENGTH_LONG).show();
+    }
+
+
+    protected void onDestroy() {
+        super.onDestroy();
+        Log.d("Calling onDestroy", "1) onDestroy() Excuted..");
+        Toast.makeText(getApplicationContext(), "1) onDestroy() Excuted..",Toast.LENGTH_LONG).show();
+    }
+}
+        
+`;
+
+        var text2 = ` 
+        ACTIVITY_MAIN.XML
+
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#E9B4F3"
+    tools:context=".MainActivity">
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+    <androidx.fragment.app.FragmentContainerView
+        
+        android:id="@+id/fragmentContainerView"
+        android:name="com.example.practical3.fragmentOne"
+        android:layout_width="199dp"
+        android:layout_height="369dp"
+        android:layout_margin="24dp"
+        android:layout_marginStart="111dp"
+        android:layout_marginTop="4dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@id/fragmentContainerView2"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout="@layout/fragment_one" />
+    
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fragmentContainerView2"
+        android:name="com.example.practical3.FragmentTwo"
+        android:layout_width="177dp"
+        android:layout_height="428dp"
+        android:layout_margin="24dp"
+        android:layout_marginStart="117dp"
+        android:layout_marginTop="149dp"
+        android:layout_marginEnd="173dp"
+        android:layout_marginBottom="279dp"
+        android:layout_weight="1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/textView"
+        app:layout_constraintHorizontal_bias="0.907"
+        app:layout_constraintStart_toEndOf="@id/fragmentContainerView"
+        app:layout_constraintTop_toBottomOf="@+id/fragmentContainerView"
+        app:layout_constraintVertical_bias="0.131"
+        tools:layout="@layout/fragment_two" />
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+FRAGMENT_XML;
+
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="243dp"
+        android:layout_height="353dp"
+        android:background="#ADC9DF"
+        android:contentDescription="test1"
+        android:src="@drawable/shihchab" />
+</FrameLayout>
+
+FRAGMENT_TWO.XML;
+
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="@string/hello_blank_fragment" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="238dp"
+        android:layout_height="322dp"
+        android:background="#272935"
+        android:contentDescription="test2"
+        android:src="@drawable/pikachu" />
+</FrameLayout>
+`;
+
+        var text3 = `
+        ACTIVITY_MAIN.XML
+
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+    <EditText
+        android:id="@+id/txtTo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="To:"
+        android:textSize="30dp"
+        android:layout_margin="10dp"
+        >
+    </EditText>
+    <EditText
+        android:id="@+id/txtSub"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Subject:"
+        android:textSize="30dp"
+        android:layout_margin="10dp"
+        >
+    </EditText>
+    <EditText
+        android:id="@+id/txtMsg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Message:"
+        android:textSize="30dp"
+        android:layout_margin="10dp"
+        android:gravity="top"
+        android:layout_weight="1">
+    </EditText>
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:textSize="30dp"
+        android:text="Send" />
+</LinearLayout>
+
+`;
+
+        var text4 = `
+        ACTIVITY_MAIN.XML
+
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+    <EditText
+        android:id="@+id/enterno"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter a Number:"/>
+    <Button
+        android:id="@+id/button7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="7"
+        android:layout_below="@id/enterno"/>
+    <Button
+        android:id="@+id/button8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="8"
+        android:layout_below="@id/enterno"
+        android:layout_toRightOf="@id/button7"/>
+    <Button
+        android:id="@+id/button9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="9"
+        android:layout_below="@id/enterno"
+        android:layout_toRightOf="@id/button8"/>
+    <Button
+        android:id="@+id/buttonx"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="x"
+        android:layout_below="@id/enterno"
+        android:layout_toRightOf="@id/button9"/>
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="4"
+        android:layout_below="@id/button7"/>
+    <Button
+        android:id="@+id/button5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="5"
+        android:layout_below="@id/button8"
+        android:layout_toRightOf="@id/button4"/>
+    <Button
+        android:id="@+id/button6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="6"
+        android:layout_below="@id/button9"
+        android:layout_toRightOf="@id/button5"/>
+    <Button
+        android:id="@+id/buttondash"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="-"
+        android:layout_below="@id/buttonx"
+        android:layout_toRightOf="@id/button6"/>
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="1"
+        android:layout_below="@id/button4"/>
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="2"
+        android:layout_below="@id/button5"
+        android:layout_toRightOf="@id/button1"/>
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="3"
+        android:layout_below="@id/button6"
+        android:layout_toRightOf="@id/button2"/>
+    <Button
+        android:id="@+id/buttonplus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="+"
+        android:layout_below="@id/buttondash"
+        android:layout_toRightOf="@id/button3"/>
+    <Button
+        android:id="@+id/buttondot"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="."
+        android:layout_below="@id/button1"/>
+    <Button
+        android:id="@+id/button0"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0"
+        android:layout_below="@id/button2"
+        android:layout_toRightOf="@id/buttondot"/>
+    <Button
+        android:id="@+id/buttonslash"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="/"
+        android:layout_below="@id/button3"
+        android:layout_toRightOf="@id/button0"/>
+    <Button
+        android:id="@+id/buttonequals"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="="
+        android:layout_below="@id/buttonplus"
+        android:layout_toRightOf="@id/buttonslash"/>
+</RelativeLayout>    
+
+        `;
+
+        var text5 = `
+        ACTIVITY_MAIN.XML
+
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:orientation="vertical">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Table Desgined by Amit K"
+        android:layout_below="@id/button1"
+        android:layout_centerHorizontal="true"
+        android:padding="20dp"/>
+    <TableLayout
+        android:id="@+id/Table1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="70dp">
+        <TableRow
+            android:background="@color/red">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ID"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:padding="8dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Name"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:padding="8dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Place"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:padding="8dp"/>
+        </TableRow>
+        <TableRow>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="766"
+                android:textSize="20sp"
+                android:padding="8dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Amit"
+                android:textSize="20sp"
+                android:padding="8dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Jaipur"
+                android:textSize="20sp"
+                android:padding="8dp"/>
+        </TableRow>
+        <TableRow>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="878"
+                android:textSize="20sp"
+                android:padding="8dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Saloni"
+                android:textSize="20sp"
+                android:padding="8dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Kolapur"
+                android:textSize="20sp"
+                android:padding="8dp"/>
+        </TableRow>
+        <TableRow>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="873"
+                android:textSize="20sp"
+                android:padding="8dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Payal"
+                android:textSize="20sp"
+                android:padding="8dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Konkan"
+                android:textSize="20sp"
+                android:padding="8dp"/>
+        </TableRow>
+        <TableRow>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="870"
+                android:textSize="20sp"
+                android:padding="8dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Srushti"
+                android:textSize="20sp"
+                android:padding="8dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Malwan"
+                android:textSize="20sp"
+                android:padding="8dp"/>
+        </TableRow>
+    </TableLayout>
+    <Button
+        android:id="@+id/button1"
+        android:textSize="20sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hide"
+        android:onClick="submit"
+        android:layout_below="@id/Table1"
+        android:layout_centerHorizontal="true"
+        />
+</RelativeLayout>
+
+MAIN_ACTIVIY.COM
+
+package com.example.practical4
+
+import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
+import android.view.View
+import android.widget.Button
+import android.widget.TableLayout
+class MainActivity : AppCompatActivity() {
+    var bool = true
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+    }
+    fun submit(view: View) {
+        val tblobj: TableLayout =findViewById(R.id.Table1)
+        val btn: Button =findViewById(R.id.button1)
+        tblobj.setColumnCollapsed(1,bool)
+        tblobj.setColumnCollapsed(2,bool)
+        if (bool) {
+            bool=false
+            btn.text="show"
+        }else{
+            bool=true
+            btn.text="Hide"
+        }
+    }
+}
+
+`;
+
+        var text6 = `
+        
+        ACTIVITY_MAIN.XML
+
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#2196F3" android:backgroundTint="#2196F3"
+    android:orientation="vertical" tools:context=".MainActivity">
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:alignmentMode="alignMargins" android:columnCount="2"
+        android:rowCount="3" tools:ignore="UselessParent">
+        <androidx.cardview.widget.CardView android:layout_width="0dp"
+            android:layout_height="0dp" android:layout_row="0"
+            android:layout_rowWeight="1" android:layout_column="0"
+            android:layout_columnWeight="1">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center" android:orientation="vertical"
+                tools:ignore="UseCompoundDrawables">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="150dp" android:layout_gravity="center"
+                    android:layout_margin="5dp"
+                    android:maxHeight="30dp" android:minHeight="5dp"
+                    android:src="@drawable/kfc" tools:ignore="ContentDescription" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" android:layout_margin="5dp"
+                    android:background="#FFEB3B" android:gravity="center"
+                    android:maxHeight="30dp" android:text="KFC"
+                    android:textSize="20sp" android:textStyle="bold"
+                    tools:ignore="HardcodedText" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+        <androidx.cardview.widget.CardView android:layout_width="0dp"
+            android:layout_height="0dp" android:layout_row="0"
+            android:layout_rowWeight="1" android:layout_column="1"
+            android:layout_columnWeight="1">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center" android:orientation="vertical"
+                tools:ignore="UseCompoundDrawables">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="150dp" android:layout_gravity="center"
+                    android:layout_margin="5dp"
+                    android:maxHeight="30dp" android:minHeight="5dp"
+                    android:src="@drawable/dominos" tools:ignore="ContentDescription" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" android:layout_margin="5dp"
+                    android:background="#FFEB3B" android:gravity="center"
+                    android:maxHeight="30dp" android:text="Dominos"
+                    android:textSize="20sp" android:textStyle="bold"
+                    tools:ignore="HardcodedText" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+        <androidx.cardview.widget.CardView android:layout_width="0dp"
+            android:layout_height="0dp" android:layout_row="1"
+            android:layout_rowWeight="1" android:layout_column="0"
+            android:layout_columnWeight="1">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center" android:orientation="vertical"
+                tools:ignore="UseCompoundDrawables">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="150dp" android:layout_gravity="center"
+                    android:layout_margin="5dp"
+                    android:maxHeight="30dp" android:minHeight="5dp"
+                    android:src="@drawable/lv" tools:ignore="ContentDescription" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" android:layout_margin="5dp"
+                    android:background="#FFEB3B" android:gravity="center"
+                    android:maxHeight="30dp" android:text="Louis Vitton"
+                    android:textSize="20sp" android:textStyle="bold"
+                    tools:ignore="HardcodedText" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+        <androidx.cardview.widget.CardView android:layout_width="0dp"
+            android:layout_height="0dp" android:layout_row="1"
+            android:layout_rowWeight="1" android:layout_column="1"
+            android:layout_columnWeight="1">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center" android:orientation="vertical"
+                tools:ignore="UseCompoundDrawables">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="150dp" android:layout_gravity="center"
+                    android:layout_margin="5dp"
+                    android:maxHeight="30dp" android:minHeight="5dp"
+                    android:src="@drawable/versace" tools:ignore="ContentDescription"
+                    />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" android:layout_margin="5dp"
+                    android:background="#FFEB3B" android:gravity="center"
+                    android:maxHeight="30dp" android:text="Versace"
+                    android:textSize="20sp" android:textStyle="bold"
+                    tools:ignore="HardcodedText" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+        <androidx.cardview.widget.CardView android:layout_width="0dp"
+            android:layout_height="0dp" android:layout_row="2"
+            android:layout_rowWeight="1" android:layout_column="0"
+            android:layout_columnWeight="1">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center" android:orientation="vertical"
+                tools:ignore="UseCompoundDrawables">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="150dp" android:layout_gravity="center"
+                    android:layout_margin="5dp"
+                    android:maxHeight="30dp" android:minHeight="0dp"
+                    android:src="@drawable/mg"
+                    tools:ignore="ContentDescription" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" android:layout_margin="5dp"
+                    android:background="#FFEB3B" android:gravity="center"
+                    android:text="MG" android:textSize="20sp"
+                    android:textStyle="bold" tools:ignore="HardcodedText" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+        <androidx.cardview.widget.CardView android:layout_width="0dp"
+            android:layout_height="0dp" android:layout_row="2"
+            android:layout_rowWeight="1" android:layout_column="1"
+            android:layout_columnWeight="1">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center" android:orientation="vertical"
+                tools:ignore="UseCompoundDrawables">
+                <ImageView
+                    android:layout_width="195dp" android:layout_height="150dp"
+                    android:layout_gravity="center" android:layout_margin="5dp"
+                    android:maxHeight="30dp"
+                    android:minHeight="5dp" android:src="@drawable/audi" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" android:layout_margin="5dp"
+                    android:background="#FFEB3B" android:gravity="center"
+                    android:text="Audi" android:textSize="20sp"
+                    android:textStyle="bold" tools:ignore="HardcodedText" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+    </GridLayout>
+</RelativeLayout>
+`;
+
+var text7 = `
+MENU.XML
+
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:id="@+id/setting"
+        android:title="setting"
+        android:icon="@drawable/setting"
+        app:showAsAction="never">
+    </item>
+    <item android:id="@+id/copy"
+        android:title="copy"
+        android:icon="@drawable/copy"
+        app:showAsAction="ifRoom"
+        >
+    </item>
+    <item android:id="@+id/download"
+        android:title="download"
+        android:icon="@drawable/download"
+        app:showAsAction="ifRoom"
+        >
+    </item>
+</menu>
+
+
+main kt
+
+package com.example.pratical5
+
+import android.content.Intent
+import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
+import android.provider.Settings
+import android.view.Menu
+import android.view.MenuItem
+import android.widget.Toast
+class MainActivity : AppCompatActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+        val actionBar = supportActionBar
+        actionBar?.title = "878_766"
+    }
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menufile, menu)
+        return true
+    }
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.download -> {
+                Toast.makeText(this, "Downloading the file. ... ", Toast.LENGTH_SHORT).show()
+                true
+            }
+            R.id.copy -> {
+                true
+            }
+            R.id.setting -> {
+                val settingIntent = Intent(Settings.ACTION_SETTINGS)
+                startActivity(settingIntent)
+                true
+            }
+            else -> {
+                throw IllegalStateException("Unexpected value: $(item.itemid}")
+            }
+        }
+    }
+}
+
+
+`;
+
+var text8= `
+ACTIVITY_MAIN.XML
+
+
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+    <TextView
+        android:id="@+id/rateMeTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="878_766_Rate Me"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+FRAGMENT_CUSTOMDIALOG.XML
+
+
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="30dp"
+        android:text="Your Ratings Matters"
+        android:textSize="26dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+    <RadioGroup
+        android:id="@+id/ratingRadioGroup"
+        android:layout_width="352dp"
+        android:layout_height="356dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView">
+        <RadioButton
+            android:id="@+id/excellentRadio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="56dp"
+            android:text="Excellent"
+            android:textSize="20dp" />
+        <RadioButton
+            android:id="@+id/veryGoodRadio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Very Good"
+            android:textSize="20dp" />
+        <RadioButton
+            android:id="@+id/GoodRadio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Good"
+            android:textSize="20dp" />
+        <RadioButton
+            android:id="@+id/neutralRadio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Neutral"
+            android:textSize="20dp" />
+        <RadioButton
+            android:id="@+id/badRadio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Bad"
+            android:textSize="20dp" />
+    </RadioGroup>
+    <Button
+        android:id="@+id/cancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="20dp"
+        android:backgroundTint="#F38888"
+        android:text="CANCEL"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ratingRadioGroup" />
+    <Button
+        android:id="@+id/submit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:backgroundTint="#4CAF50"
+        android:text="SUBMIT"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.593"
+        app:layout_constraintStart_toEndOf="@+id/cancel"
+        app:layout_constraintTop_toBottomOf="@+id/ratingRadioGroup" />
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+MAINACTIVITY.KT
+
+
+package com.example.practical6
+
+import android.annotation.SuppressLint
+import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
+import android.widget.TextView
+import androidx.appcompat.app.AlertDialog
+class MainActivity : AppCompatActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+        val rateMeTextView: TextView = findViewById(R.id.rateMeTextView)
+        // Set click listener for rateMeTextView
+        rateMeTextView.setOnClickListener {
+            // Create an instance of CustomDialogFragment
+            var dialog = CustomDialogFragment()
+            // Show the dialog
+            dialog.show(supportFragmentManager, "customDialog")
+        }
+    }
+    //6A : Alert Dialog Example
+    // Override onBackPressed method
+    @SuppressLint("MissingSuperCall")
+    override fun onBackPressed() {
+        // Create an AlertDialog.Builder
+        val builder = AlertDialog.Builder(this)
+        // Set the title of the dialog
+        builder.setTitle("Are you sure?")
+        // Set the message of the dialog
+        builder.setMessage("Are you sure you want to close the app?")
+        // Set positive button and its click listener
+        builder.setPositiveButton("Yes") { dialogInterface, i -> finish()
+            // Finish the activity when "Yes" is clicked
+        }
+        // Set negative button and its click listener
+        builder.setNegativeButton("No") { dialogInterface, i ->
+            // Do nothing when "No" is clicked
+        }
+// Show the dialog
+        builder.show()
+    }
+}
+
+
+CUSTOMDIALOGFRAGMENT.KT
+
+package com.example.practical6
+
+import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import android.widget.Button
+import android.widget.RadioButton
+import android.widget.RadioGroup
+import android.widget.Toast
+import androidx.fragment.app.DialogFragment
+class CustomDialogFragment: DialogFragment() {
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        // Inflate the layout for this fragment
+        var
+                rootView:View=inflater.inflate(R.layout.fragment_customdialog,container,false)
+        // Find the radio group in the layout
+        val ratingRadioGroup =
+            rootView.findViewById<RadioGroup>(R.id.ratingRadioGroup)
+        // Find the cancel button in the layout
+        val btnCancel = rootView.findViewById<Button>(R.id.cancel)
+        // Find the submit button in the layout
+        val btnSubmit = rootView.findViewById<Button>(R.id.submit)
+        // Set a click listener for the cancel button
+        btnCancel.setOnClickListener {
+            // Dismiss the dialog when cancel button is clicked
+            dismiss()
+        }
+        // Set a click listener for the submit button
+        btnSubmit.setOnClickListener{
+            // Get the ID of the selected radio button
+            val selectedID = ratingRadioGroup.checkedRadioButtonId
+            // Find the selected radio button
+            val radio = rootView.findViewById<RadioButton>(selectedID)
+            // Get the text of the selected radio button
+            var ratingResult = radio.text.toString()
+            // Show a toast with the selected rating
+            Toast.makeText(context,"You rated:$ratingResult",Toast.LENGTH_LONG).show()
+            // Dismiss the dialog
+            dismiss()
+        }
+        // Return the inflated view
+        return rootView
+    }
+}
+
+`;
+var text9= `
+ACTIVITY_MAIN.XML
+
+
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+    <EditText
+        android:id="@+id/username"
+        android:layout_width="406dp"
+        android:layout_height="62dp"
+        android:layout_marginTop="288dp"
+        android:hint="Username"
+        android:textSize="25dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+    <EditText
+        android:id="@+id/pass"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:textSize="25dp"
+        android:hint="Password"
+        android:inputType="textPassword"
+        app:layout_constraintTop_toBottomOf="@+id/username"
+        tools:layout_editor_absoluteX="0dp" />
+    <Button
+        android:id="@+id/loginbtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="878_766_LOGIN"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pass"
+        app:layout_constraintVertical_bias="0.307" />
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+SECOND_ACTIVITY.XML
+
+
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+    <TextView
+        android:id="@+id/display"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="878_766_hello"
+        android:textSize="30dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+MAINACTIVTY.KT
+
+package com.example.practical7
+
+import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
+import android.content.Intent
+import android.widget.Button
+import android.widget.EditText
+import android.widget.Toast
+import com.SecondActivity
+
+class MainActivity : AppCompatActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+        val usernameEditText = findViewById<EditText>(R.id.username)
+        val passwordEditText = findViewById<EditText>(R.id.pass)
+        val loginButton = findViewById<Button>(R.id.loginbtn)
+        loginButton.setOnClickListener {
+            val username = usernameEditText.text.toString()
+            val password = passwordEditText.text.toString()
+            // Check if username and password are correct
+            if (username == "Saloni&AK" && password == "pass@123") {
+                // If correct, launch SecondActivity
+                val intent = Intent(this, SecondActivity::class.java)
+                intent.putExtra("username", username)
+                startActivity(intent)
+                Toast.makeText(this,"Login Successful!",Toast.LENGTH_LONG).show()
+            } else {
+                // If incorrect, display error message
+                Toast.makeText(this, "Invalid username or password",
+                    Toast.LENGTH_SHORT).show()
+            }
+        }
+    }
+}
+
+
+
+SECOUNDACTIVITY.KT
+
+package com
+
+import android.content.Intent
+import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
+import android.widget.Button
+import android.widget.TextView
+import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
+import com.example.practical7.R
+
+class SecondActivity : AppCompatActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.second_activity)
+        val username = intent.getStringExtra("username")
+        //val homebtn = findViewById<Button>(R.id.homepg)
+        val greetingTextView = findViewById<TextView>(R.id.display)
+        greetingTextView.text = "Hello $username!"
+        fun onBackPressed() {
+            val builder = AlertDialog.Builder(this)
+            builder.setTitle("Are you sure")
+            builder.setMessage("Do you want to close app")
+            builder.setPositiveButton("Yes", { dialogInterface, i ->
+                finishAffinity() })
+            builder.setNegativeButton("No", { dialogInterface, i -> })
+            builder.show()
+        }
+    }
+}
+
+
+
+
+
+`;
+
+var text10= `
+ACTIVITY_MAIN.XML
+
+
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="878_862_766_Notification"
+        android:textSize="24dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+    <Button
+        android:id="@+id/notifybtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="SHOW NOTIFICATION"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintVertical_bias="0.246" />
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+ANDROIDMANIFEST.XML
+
+
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Base.Theme.Practical8"
+        tools:targetApi="31">
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+</manifest>
+
+
+
+MAINACTIVTY.KT
+
+package com.example.practical8
+
+import android.annotation.SuppressLint
+import android.app.NotificationChannel
+import android.app.NotificationManager
+import android.content.Context
+import android.os.Build
+import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
+import android.widget.Button
+import androidx.core.app.NotificationCompat
+import androidx.core.app.NotificationManagerCompat
+class MainActivity : AppCompatActivity() {
+    private val CHANNEL_ID = "My_Channel"
+    private val notificationId = 101
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+        createNotificationChannel()
+        val button = findViewById<Button>(R.id.notifybtn)
+        button.setOnClickListener {
+            showNotification()
+        }
+    }
+
+    private fun createNotificationChannel() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            val name = "My Channel"
+            val descriptionText = "My Notification Channel"
+            val importance = NotificationManager.IMPORTANCE_DEFAULT
+            val channel = NotificationChannel(CHANNEL_ID, name,
+                importance).apply {
+                description = descriptionText
+            }
+            val notificationManager: NotificationManager =
+                getSystemService(Context.NOTIFICATION_SERVICE) as
+                        NotificationManager
+            notificationManager.createNotificationChannel(channel)
+        }
+    }
+    @SuppressLint("MissingPermission")
+    private fun showNotification() {
+        val builder = NotificationCompat.Builder(this, CHANNEL_ID)
+            .setSmallIcon(R.drawable.notify)
+            .setContentTitle("My Notification")
+            .setContentText("This is a notification created by a button click")
+                .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+                    with(NotificationManagerCompat.from(this)) {
+                notify(notificationId, builder.build())
+            }
+    }
+}
+
+
+`;
+
+var text11= `
+ACTIVITY_MAIN.XML
+
+
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:text="Network Testing of Roll No 878_766"
+        android:fontFamily="sans-serif-condensed"
+        android:textSize="32sp"
+        android:textColor="@color/red"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="HardcodedText"
+        />
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+ANDROIDMANIFEST.XML
+
+
+
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.example.practical8b">
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE">
+    </uses-permission>
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.AppCompat"
+        tools:targetApi="31">
+        <activity
+            android:name="com.example.practical8b.MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+</manifest>
+
+
+
+
+MAINACTIVITY.KT
+
+
+package com.example.practical8b
+
+import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
+import android.content.Context
+import android.net.ConnectivityManager
+import android.widget.Toast
+@Suppress("DEPRECATION")
+class MainActivity : AppCompatActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+        val c = applicationContext.getSystemService(
+            Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+        val networkinfo = c.activeNetworkInfo
+        if( networkinfo != null && networkinfo.isConnected)
+        {
+            if(networkinfo.type == ConnectivityManager.TYPE_MOBILE)
+            {
+                Toast.makeText(applicationContext,
+                    "Connected to Mobile Network",Toast.LENGTH_LONG).show()
+            }
+            if(networkinfo.type == ConnectivityManager.TYPE_WIFI)
+            {
+                Toast.makeText(applicationContext,
+                    "Connected to WIFI Network",Toast.LENGTH_LONG).show()
+            }
+        }
+        else{
+            Toast.makeText(applicationContext,
+                "You are offline",Toast.LENGTH_LONG).show()
+        }
+    }
+}
+
+
+
+`;
+
+function copyText(text) {
+    navigator.clipboard.writeText(text).then(function () {
+        document.getElementById('copiedMsg').innerHTML = "Text Copied"
+    }).catch(function (err) {
+        console.error('Unable to copy text', err);
+    });
+}
+</script>
+
+</body>
+
+</html>
