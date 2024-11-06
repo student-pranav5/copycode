@@ -37,1293 +37,578 @@
 
 <body>
 
-    <button onclick="copyText(text1)">3aActivity Life cycle</button>
-    <button onclick=" copyText(text2)">3b Life Cycle of Fragments and Multiple Fragments</button>
-    <button onclick="copyText(text3)">4a linear layout</button>
-    <button onclick="copyText(text4)">4b relative layout</button>
-    <button onclick="copyText(text5)">4c table </button>
-    <button onclick="copyText(text6)">4d grid view</button>
-    <button onclick="copyText(text7)">5 manu bar </button>
-    <button onclick="copyText(text8)">6 dialogue & framgremt</button>
-    <button onclick="copyText(text9)">7 intent event listner </button>
-    <button onclick="copyText(text10)">8 notification </button>
-    <button onclick="copyText(text11)">broadcast recever </button>
+    <button onclick="copyText(text1)">Simple linear</button>
+    <button onclick=" copyText(text2)">nnbipolarbinarysig</button>
+    <button onclick="copyText(text3)">&!McPitts</button>
+    <button onclick="copyText(text4)">XOR</button>
+    <button onclick="copyText(text5)">Hebb </button>
+    <button onclick="copyText(text6)">Delta</button>
+    <button onclick="copyText(text7)">BPA </button>
+    <button onclick="copyText(text8)">LSepar</button>
+    <button onclick="copyText(text9)">hopfi </button>
+    <button onclick="copyText(text10)">koh </button>
+    <button onclick="copyText(text11)">ART </button>
+    <button onclick="copyText(text12)">identity </button>
+    <button onclick="copyText(text13)">mem&iden </button>
+    <button onclick="copyText(text14)">ratio </button>
+    <button onclick="copyText(text15)">tipp </button>
+    
+    
     <p id="copiedMsg"></p>
     <script>
 
         var text1= `
-        ACTIVITY_MAIN.XML
+print("Practical Performed by: Roshni Gupta , Roll No : 09")
+print("Enter the value of x1:-")
+x1 = float(input())
+print("Enter the value of x2:-")
+x2 = float(input())
+print("Enter the value of w1:-")
+w1 = float(input())
+print("Enter the value of w2:-")
+w2 = float(input())
+print("Calculating Net Input: ")
+net_input = x1 * w1 + x2 * w2
+("Net Input : ", net_input)
+print("Applying Activation Function:")
+threshold = 0
+if net_input >= threshold:
+    	print("1")
+else:
+    	print("0")
 
-pranav `
+         `;
 
         var text2 = ` 
-        ACTIVITY_MAIN.XML
+import math
+print("Practical Performed by: Roshni Gupta , Roll No : 09")
+x1=0.3
+x2=0.5
+x3=0.6
+print("Value of x1= ",x1)
+print("Value of x2= ",x2)
+print("Value of x3= ",x3)
+w1=0.2
+w2=0.1
+w3=-0.3
+print("Value of w1= ",w1)
+print("Value of w2= ",w2)
+print("Value of w3= ",w3)
+yin=x1*w1 + x2*w2 + x3*w3
+print("Net Input :",yin)
+#Applying Binary Sigmoidal function
+funct_x1= 1/(1+math.exp(-yin))
+print("After applying sigmoidal function: ",funct_x1)
+#Applying Bipolar Sigmoidal function
+funct_x2= (1-math.exp(-yin))/(1+math.exp(-yin))
+print("After applying Bipolar sigmoidal function: ",funct_x2)
 
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#E9B4F3"
-    tools:context=".MainActivity">
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-    <androidx.fragment.app.FragmentContainerView
-        
-        android:id="@+id/fragmentContainerView"
-        android:name="com.example.practical3.fragmentOne"
-        android:layout_width="199dp"
-        android:layout_height="369dp"
-        android:layout_margin="24dp"
-        android:layout_marginStart="111dp"
-        android:layout_marginTop="4dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@id/fragmentContainerView2"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:layout="@layout/fragment_one" />
-    
-    <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/fragmentContainerView2"
-        android:name="com.example.practical3.FragmentTwo"
-        android:layout_width="177dp"
-        android:layout_height="428dp"
-        android:layout_margin="24dp"
-        android:layout_marginStart="117dp"
-        android:layout_marginTop="149dp"
-        android:layout_marginEnd="173dp"
-        android:layout_marginBottom="279dp"
-        android:layout_weight="1"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/textView"
-        app:layout_constraintHorizontal_bias="0.907"
-        app:layout_constraintStart_toEndOf="@id/fragmentContainerView"
-        app:layout_constraintTop_toBottomOf="@+id/fragmentContainerView"
-        app:layout_constraintVertical_bias="0.131"
-        tools:layout="@layout/fragment_two" />
-</androidx.constraintlayout.widget.ConstraintLayout>
-
-
-FRAGMENT_XML;
-
-<?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainActivity">
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="243dp"
-        android:layout_height="353dp"
-        android:background="#ADC9DF"
-        android:contentDescription="test1"
-        android:src="@drawable/shihchab" />
-</FrameLayout>
-
-FRAGMENT_TWO.XML;
-
-<?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainActivity">
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
-
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="238dp"
-        android:layout_height="322dp"
-        android:background="#272935"
-        android:contentDescription="test2"
-        android:src="@drawable/pikachu" />
-</FrameLayout>
+     
 `;
 
         var text3 = `
-        ACTIVITY_MAIN.XML
-
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".MainActivity">
-    <EditText
-        android:id="@+id/txtTo"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="To:"
-        android:textSize="30dp"
-        android:layout_margin="10dp"
-        >
-    </EditText>
-    <EditText
-        android:id="@+id/txtSub"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Subject:"
-        android:textSize="30dp"
-        android:layout_margin="10dp"
-        >
-    </EditText>
-    <EditText
-        android:id="@+id/txtMsg"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Message:"
-        android:textSize="30dp"
-        android:layout_margin="10dp"
-        android:gravity="top"
-        android:layout_weight="1">
-    </EditText>
-    <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="right"
-        android:textSize="30dp"
-        android:text="Send" />
-</LinearLayout>
+ print("Practical Performed by: Roshni Gupta , Roll No : 09")
+num_ip=int(input("Enter the no of inputs:"))
+w1=1
+w2=1
+print("for the",num_ip,"inputs calculates the net input")
+x1=[]
+x2=[]
+for i in range(0,num_ip):
+ e1=int(input("x1="))
+ e2=int(input("x2="))
+ x1.append(e1)
+ x2.append(e2)
+ print("x1=",x1)
+ print("x2=",x2)
+ n=[w1*i for i in x1]
+ m=[w2*i for i in x2]
+ Yin=[]
+for i in range(0,num_ip):
+ Yin.append(n[i]+m[i])
+print("\n Excitetory weight")
+print("Yin=",Yin)
+#Assume one weight as excitetory and one as inhibitory
+w1=1
+w2=-1
+n=[w1*i for i in x1]
+m=[w2*i for i in x2]
+Yin=[]
+for i in range(0,num_ip):
+    Yin.append(n[i]+m[i])
+print("\n Excitetory weight")
+print("Yin=",Yin)
+print("\n after assuming one weight as excitetory and one as inhibitory")
+y=[]
+for i in range(0,num_ip):
+ if(Yin[i]>=1):
+     e=1
+     y.append(e)
+ if(Yin[i]<1):
+     e=0
+     y.append(e)
+ print("y=",y)
 
 `;
 
         var text4 = `
-        ACTIVITY_MAIN.XML
+import numpy as np
+print("enter weights")
+w11=int(input('weight w11='))
+w12=int(input('weight w12='))
+w21=int(input('weight w21='))
+w22=int(input('weight w22='))
+v1=int(input('weight v1='))
+v2=int(input('weight v2='))
+print('Enter threshold Values')
+theta=int(input('theta='))
+x1=np.array([0,0,1,1])
+x2=np.array([0,1,0,1])
+z=np.array([0,1,1,0])
+y1=np.zeros((4,))
+y2=np.zeros((4,))
+y=np.zeros((4,))
+zin1=np.zeros((4,))
+zin2=np.zeros((4,))
+zin1=x1*w11+x2*w21
+zin2=x1*w21+x2*w22
+print("z1",zin1)
+print("z2",zin2)
+for i in range(0,4):
+ if zin1[i]>=theta:
+     y1[i]=1
+ else:
+     y1[i]=0
+ if zin2[i]>=theta:
+     y2[i]=1
+ else:
+     y2[i]=0
+yin=np.array([])
+yin=y1*v1+y2*v2
+for i in range(0,4):
+ if yin[i]>=theta:
+     y[i]=1
+ else:
+     y[i]=0
+print("yin",yin)
+print('output of net')
+y=y.astype(int)
+print("y",y)
+print("z",z)
 
-<?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainActivity">
-    <EditText
-        android:id="@+id/enterno"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Enter a Number:"/>
-    <Button
-        android:id="@+id/button7"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="7"
-        android:layout_below="@id/enterno"/>
-    <Button
-        android:id="@+id/button8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="8"
-        android:layout_below="@id/enterno"
-        android:layout_toRightOf="@id/button7"/>
-    <Button
-        android:id="@+id/button9"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="9"
-        android:layout_below="@id/enterno"
-        android:layout_toRightOf="@id/button8"/>
-    <Button
-        android:id="@+id/buttonx"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="x"
-        android:layout_below="@id/enterno"
-        android:layout_toRightOf="@id/button9"/>
-    <Button
-        android:id="@+id/button4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="4"
-        android:layout_below="@id/button7"/>
-    <Button
-        android:id="@+id/button5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="5"
-        android:layout_below="@id/button8"
-        android:layout_toRightOf="@id/button4"/>
-    <Button
-        android:id="@+id/button6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="6"
-        android:layout_below="@id/button9"
-        android:layout_toRightOf="@id/button5"/>
-    <Button
-        android:id="@+id/buttondash"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="-"
-        android:layout_below="@id/buttonx"
-        android:layout_toRightOf="@id/button6"/>
-    <Button
-        android:id="@+id/button1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="1"
-        android:layout_below="@id/button4"/>
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="2"
-        android:layout_below="@id/button5"
-        android:layout_toRightOf="@id/button1"/>
-    <Button
-        android:id="@+id/button3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="3"
-        android:layout_below="@id/button6"
-        android:layout_toRightOf="@id/button2"/>
-    <Button
-        android:id="@+id/buttonplus"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="+"
-        android:layout_below="@id/buttondash"
-        android:layout_toRightOf="@id/button3"/>
-    <Button
-        android:id="@+id/buttondot"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="."
-        android:layout_below="@id/button1"/>
-    <Button
-        android:id="@+id/button0"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="0"
-        android:layout_below="@id/button2"
-        android:layout_toRightOf="@id/buttondot"/>
-    <Button
-        android:id="@+id/buttonslash"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="/"
-        android:layout_below="@id/button3"
-        android:layout_toRightOf="@id/button0"/>
-    <Button
-        android:id="@+id/buttonequals"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="="
-        android:layout_below="@id/buttonplus"
-        android:layout_toRightOf="@id/buttonslash"/>
-</RelativeLayout>    
 
         `;
 
         var text5 = `
-        ACTIVITY_MAIN.XML
+X = [[1,1], [1,-1], [-1,1], [-1,-1]]
+print("Inputs = ")
+for x in X:
+ print(x)
+Y = [1,-1,-1,-1]
+print("Target = ",Y)
+w = [0,0]
+print("Initial weight values = ", w)
+for i in range(len(X)):
+ for j in range(len(w)):
+     w[j] = w[j] + X[i][j] + Y[i]
+ print(i, "Iteration, Weight values = ",w)
 
-<?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainActivity"
-    android:orientation="vertical">
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Table Desgined by Amit K"
-        android:layout_below="@id/button1"
-        android:layout_centerHorizontal="true"
-        android:padding="20dp"/>
-    <TableLayout
-        android:id="@+id/Table1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="70dp">
-        <TableRow
-            android:background="@color/red">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="ID"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                android:padding="8dp"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Name"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                android:padding="8dp"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Place"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                android:padding="8dp"/>
-        </TableRow>
-        <TableRow>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="766"
-                android:textSize="20sp"
-                android:padding="8dp"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Amit"
-                android:textSize="20sp"
-                android:padding="8dp"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Jaipur"
-                android:textSize="20sp"
-                android:padding="8dp"/>
-        </TableRow>
-        <TableRow>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="878"
-                android:textSize="20sp"
-                android:padding="8dp"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Saloni"
-                android:textSize="20sp"
-                android:padding="8dp"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Kolapur"
-                android:textSize="20sp"
-                android:padding="8dp"/>
-        </TableRow>
-        <TableRow>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="873"
-                android:textSize="20sp"
-                android:padding="8dp"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Payal"
-                android:textSize="20sp"
-                android:padding="8dp"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Konkan"
-                android:textSize="20sp"
-                android:padding="8dp"/>
-        </TableRow>
-        <TableRow>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="870"
-                android:textSize="20sp"
-                android:padding="8dp"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Srushti"
-                android:textSize="20sp"
-                android:padding="8dp"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Malwan"
-                android:textSize="20sp"
-                android:padding="8dp"/>
-        </TableRow>
-    </TableLayout>
-    <Button
-        android:id="@+id/button1"
-        android:textSize="20sp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hide"
-        android:onClick="submit"
-        android:layout_below="@id/Table1"
-        android:layout_centerHorizontal="true"
-        />
-</RelativeLayout>
 
-MAIN_ACTIVIY.COM
-
-package com.example.practical4
-
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
-import android.view.View
-import android.widget.Button
-import android.widget.TableLayout
-class MainActivity : AppCompatActivity() {
-    var bool = true
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-    }
-    fun submit(view: View) {
-        val tblobj: TableLayout =findViewById(R.id.Table1)
-        val btn: Button =findViewById(R.id.button1)
-        tblobj.setColumnCollapsed(1,bool)
-        tblobj.setColumnCollapsed(2,bool)
-        if (bool) {
-            bool=false
-            btn.text="show"
-        }else{
-            bool=true
-            btn.text="Hide"
-        }
-    }
-}
 
 `;
 
         var text6 = `
-        
-        ACTIVITY_MAIN.XML
+print("Practical Performed by: Roshni Gupta , Roll No : 09")
+import numpy as np
+import time
+np.set_printoptions(precision=9)
+x=np.zeros((3,))
+weights=np.zeros((3,))
+desired=np.zeros((3,))
+actual=np.zeros((3,))
+for i in range(0,3):
+ x[i]=float(input("Initial Inputs:"))
+for i in range(0,3):
+ weights[i]=float(input("Initial Weights:"))
+for i in range(0,3):
+ desired[i]=float(input("Desired Weights:"))
+for i in range(0,3):
+ actual=x[i]*weights
+print("actual",actual)
+print("desired",desired)
+a=float(input("Enter Learning Rate:"))
+while True:
+ if np.array_equal(desired,actual):
+     break #no change
+ else:
+     for i in range(0,3):
+         weights[i]=weights[i]+a*(desired[i]-actual[i])
+         actual=x[i]*weights
+         print("Weights",weights)
+         print("Actual",actual)
+         print("desired",desired)
+print("FINAL OUTPUT")
+print("Corrected Weights",weights)
+print("Actual",actual)
+print("desired",desired)
+    
 
-<?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#2196F3" android:backgroundTint="#2196F3"
-    android:orientation="vertical" tools:context=".MainActivity">
-    <GridLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:alignmentMode="alignMargins" android:columnCount="2"
-        android:rowCount="3" tools:ignore="UselessParent">
-        <androidx.cardview.widget.CardView android:layout_width="0dp"
-            android:layout_height="0dp" android:layout_row="0"
-            android:layout_rowWeight="1" android:layout_column="0"
-            android:layout_columnWeight="1">
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center" android:orientation="vertical"
-                tools:ignore="UseCompoundDrawables">
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="150dp" android:layout_gravity="center"
-                    android:layout_margin="5dp"
-                    android:maxHeight="30dp" android:minHeight="5dp"
-                    android:src="@drawable/kfc" tools:ignore="ContentDescription" />
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent" android:layout_margin="5dp"
-                    android:background="#FFEB3B" android:gravity="center"
-                    android:maxHeight="30dp" android:text="KFC"
-                    android:textSize="20sp" android:textStyle="bold"
-                    tools:ignore="HardcodedText" />
-            </LinearLayout>
-        </androidx.cardview.widget.CardView>
-        <androidx.cardview.widget.CardView android:layout_width="0dp"
-            android:layout_height="0dp" android:layout_row="0"
-            android:layout_rowWeight="1" android:layout_column="1"
-            android:layout_columnWeight="1">
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center" android:orientation="vertical"
-                tools:ignore="UseCompoundDrawables">
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="150dp" android:layout_gravity="center"
-                    android:layout_margin="5dp"
-                    android:maxHeight="30dp" android:minHeight="5dp"
-                    android:src="@drawable/dominos" tools:ignore="ContentDescription" />
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent" android:layout_margin="5dp"
-                    android:background="#FFEB3B" android:gravity="center"
-                    android:maxHeight="30dp" android:text="Dominos"
-                    android:textSize="20sp" android:textStyle="bold"
-                    tools:ignore="HardcodedText" />
-            </LinearLayout>
-        </androidx.cardview.widget.CardView>
-        <androidx.cardview.widget.CardView android:layout_width="0dp"
-            android:layout_height="0dp" android:layout_row="1"
-            android:layout_rowWeight="1" android:layout_column="0"
-            android:layout_columnWeight="1">
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center" android:orientation="vertical"
-                tools:ignore="UseCompoundDrawables">
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="150dp" android:layout_gravity="center"
-                    android:layout_margin="5dp"
-                    android:maxHeight="30dp" android:minHeight="5dp"
-                    android:src="@drawable/lv" tools:ignore="ContentDescription" />
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent" android:layout_margin="5dp"
-                    android:background="#FFEB3B" android:gravity="center"
-                    android:maxHeight="30dp" android:text="Louis Vitton"
-                    android:textSize="20sp" android:textStyle="bold"
-                    tools:ignore="HardcodedText" />
-            </LinearLayout>
-        </androidx.cardview.widget.CardView>
-        <androidx.cardview.widget.CardView android:layout_width="0dp"
-            android:layout_height="0dp" android:layout_row="1"
-            android:layout_rowWeight="1" android:layout_column="1"
-            android:layout_columnWeight="1">
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center" android:orientation="vertical"
-                tools:ignore="UseCompoundDrawables">
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="150dp" android:layout_gravity="center"
-                    android:layout_margin="5dp"
-                    android:maxHeight="30dp" android:minHeight="5dp"
-                    android:src="@drawable/versace" tools:ignore="ContentDescription"
-                    />
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent" android:layout_margin="5dp"
-                    android:background="#FFEB3B" android:gravity="center"
-                    android:maxHeight="30dp" android:text="Versace"
-                    android:textSize="20sp" android:textStyle="bold"
-                    tools:ignore="HardcodedText" />
-            </LinearLayout>
-        </androidx.cardview.widget.CardView>
-        <androidx.cardview.widget.CardView android:layout_width="0dp"
-            android:layout_height="0dp" android:layout_row="2"
-            android:layout_rowWeight="1" android:layout_column="0"
-            android:layout_columnWeight="1">
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center" android:orientation="vertical"
-                tools:ignore="UseCompoundDrawables">
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="150dp" android:layout_gravity="center"
-                    android:layout_margin="5dp"
-                    android:maxHeight="30dp" android:minHeight="0dp"
-                    android:src="@drawable/mg"
-                    tools:ignore="ContentDescription" />
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent" android:layout_margin="5dp"
-                    android:background="#FFEB3B" android:gravity="center"
-                    android:text="MG" android:textSize="20sp"
-                    android:textStyle="bold" tools:ignore="HardcodedText" />
-            </LinearLayout>
-        </androidx.cardview.widget.CardView>
-        <androidx.cardview.widget.CardView android:layout_width="0dp"
-            android:layout_height="0dp" android:layout_row="2"
-            android:layout_rowWeight="1" android:layout_column="1"
-            android:layout_columnWeight="1">
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center" android:orientation="vertical"
-                tools:ignore="UseCompoundDrawables">
-                <ImageView
-                    android:layout_width="195dp" android:layout_height="150dp"
-                    android:layout_gravity="center" android:layout_margin="5dp"
-                    android:maxHeight="30dp"
-                    android:minHeight="5dp" android:src="@drawable/audi" />
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent" android:layout_margin="5dp"
-                    android:background="#FFEB3B" android:gravity="center"
-                    android:text="Audi" android:textSize="20sp"
-                    android:textStyle="bold" tools:ignore="HardcodedText" />
-            </LinearLayout>
-        </androidx.cardview.widget.CardView>
-    </GridLayout>
-</RelativeLayout>
 `;
 
 var text7 = `
-MENU.XML
+import numpy as np
+import decimal
+import math
+np.set_printoptions(precision=4)
+v1=np.array([0.6,-0.3])
+v2=np.array([-0.1,0.4])
+w=np.array([-0.2,0.4,0.1])
+b=np.array([0.3,0.5])
+x=np.array([0,1])
+alpha=0.25
+zin=[]
+print("calculate net input to z layer")
+for i in range (0,2):
+ zin.append(round(b[i]+
+ x[0]*v1[i]+x[1]*v2[i],4))
+print("zin=",zin)
+z=[]
+print("Apply activation function to calculate output")
+for i in range(0,2):
+ z.append(round(1/(1+math.exp(-zin[i])),4))
+print("z=",z)
+print("calculate net input to output layer")
+yin=w[0]+z[0]*w[1]+z[1]*w[2]
+print("yin=",yin)
+print("calculate net output")
+y=round(1/(1+math.exp(-yin)),4)
+print("y=",y)
+fyin=y*(1-y)
+dk=round((1-y)*fyin,4)
+print("dk",dk)
+dw1=alpha*dk*z[0]
+dw2=alpha*dk*z[1]
+dw0=alpha*dk
+print("compute error portion in delta")
+din=[]
+for i in range(1,3):
+ din.append(dk*w[i])
+print("din=",din)
+fzin=[]
+d=[]
+print("error in delta")
+for i in range(0,2):
+ fzin.append(round(z[i]*(1-z[i]),4))
+ d.append(round(din[i]*fzin[i],4))
+print("fzin=",fzin)
+print("d=",d)
+dv=[[0,0],[0,0],[0,0]]
+print("change in weights between input and hidden layer")
+for i in range(0,3):
+ for j in range(0,2):
+     if i<=1:
+         dv[i][j]=alpha*d[j]*x[i]
+ else:
+     dv[i][j]=alpha*d[j]
+print(dv)
+print("Final weights of network")
+for i in range(0,2):
+ v1[i]=v1[i]+dv[0][i]
+print("v1=",v1)
+for i in range(0,2):
+ v2[i]=v2[i]+dv[1][i]
+print("v2=",v2)
+for i in range(0,2):
+ b[i]=b[i]+dv[1][i]
+print("b=",b)
+w[1]=w[1]+dw1
+w[2]=w[2]+dw2
+w[0]=w[0]+dw0
+print("w=",w)
 
-<?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
-    <item android:id="@+id/setting"
-        android:title="setting"
-        android:icon="@drawable/setting"
-        app:showAsAction="never">
-    </item>
-    <item android:id="@+id/copy"
-        android:title="copy"
-        android:icon="@drawable/copy"
-        app:showAsAction="ifRoom"
-        >
-    </item>
-    <item android:id="@+id/download"
-        android:title="download"
-        android:icon="@drawable/download"
-        app:showAsAction="ifRoom"
-        >
-    </item>
-</menu>
-
-
-main kt
-
-package com.example.pratical5
-
-import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
-import android.provider.Settings
-import android.view.Menu
-import android.view.MenuItem
-import android.widget.Toast
-class MainActivity : AppCompatActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-        val actionBar = supportActionBar
-        actionBar?.title = "878_766"
-    }
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.menufile, menu)
-        return true
-    }
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return when (item.itemId) {
-            R.id.download -> {
-                Toast.makeText(this, "Downloading the file. ... ", Toast.LENGTH_SHORT).show()
-                true
-            }
-            R.id.copy -> {
-                true
-            }
-            R.id.setting -> {
-                val settingIntent = Intent(Settings.ACTION_SETTINGS)
-                startActivity(settingIntent)
-                true
-            }
-            else -> {
-                throw IllegalStateException("Unexpected value: $(item.itemid}")
-            }
-        }
-    }
-}
 
 
 `;
 
 var text8= `
-ACTIVITY_MAIN.XML
-
-
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainActivity">
-    <TextView
-        android:id="@+id/rateMeTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="878_766_Rate Me"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-</androidx.constraintlayout.widget.ConstraintLayout>
-
-
-FRAGMENT_CUSTOMDIALOG.XML
-
-
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="30dp"
-        android:text="Your Ratings Matters"
-        android:textSize="26dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-    <RadioGroup
-        android:id="@+id/ratingRadioGroup"
-        android:layout_width="352dp"
-        android:layout_height="356dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView">
-        <RadioButton
-            android:id="@+id/excellentRadio"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="56dp"
-            android:text="Excellent"
-            android:textSize="20dp" />
-        <RadioButton
-            android:id="@+id/veryGoodRadio"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Very Good"
-            android:textSize="20dp" />
-        <RadioButton
-            android:id="@+id/GoodRadio"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Good"
-            android:textSize="20dp" />
-        <RadioButton
-            android:id="@+id/neutralRadio"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Neutral"
-            android:textSize="20dp" />
-        <RadioButton
-            android:id="@+id/badRadio"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Bad"
-            android:textSize="20dp" />
-    </RadioGroup>
-    <Button
-        android:id="@+id/cancel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="64dp"
-        android:layout_marginTop="20dp"
-        android:backgroundTint="#F38888"
-        android:text="CANCEL"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ratingRadioGroup" />
-    <Button
-        android:id="@+id/submit"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:backgroundTint="#4CAF50"
-        android:text="SUBMIT"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.593"
-        app:layout_constraintStart_toEndOf="@+id/cancel"
-        app:layout_constraintTop_toBottomOf="@+id/ratingRadioGroup" />
-</androidx.constraintlayout.widget.ConstraintLayout>
-
-
-MAINACTIVITY.KT
-
-
-package com.example.practical6
-
-import android.annotation.SuppressLint
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
-import android.widget.TextView
-import androidx.appcompat.app.AlertDialog
-class MainActivity : AppCompatActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-        val rateMeTextView: TextView = findViewById(R.id.rateMeTextView)
-        // Set click listener for rateMeTextView
-        rateMeTextView.setOnClickListener {
-            // Create an instance of CustomDialogFragment
-            var dialog = CustomDialogFragment()
-            // Show the dialog
-            dialog.show(supportFragmentManager, "customDialog")
-        }
-    }
-    //6A : Alert Dialog Example
-    // Override onBackPressed method
-    @SuppressLint("MissingSuperCall")
-    override fun onBackPressed() {
-        // Create an AlertDialog.Builder
-        val builder = AlertDialog.Builder(this)
-        // Set the title of the dialog
-        builder.setTitle("Are you sure?")
-        // Set the message of the dialog
-        builder.setMessage("Are you sure you want to close the app?")
-        // Set positive button and its click listener
-        builder.setPositiveButton("Yes") { dialogInterface, i -> finish()
-            // Finish the activity when "Yes" is clicked
-        }
-        // Set negative button and its click listener
-        builder.setNegativeButton("No") { dialogInterface, i ->
-            // Do nothing when "No" is clicked
-        }
-// Show the dialog
-        builder.show()
-    }
-}
-
-
-CUSTOMDIALOGFRAGMENT.KT
-
-package com.example.practical6
-
-import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import android.widget.Button
-import android.widget.RadioButton
-import android.widget.RadioGroup
-import android.widget.Toast
-import androidx.fragment.app.DialogFragment
-class CustomDialogFragment: DialogFragment() {
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        var
-                rootView:View=inflater.inflate(R.layout.fragment_customdialog,container,false)
-        // Find the radio group in the layout
-        val ratingRadioGroup =
-            rootView.findViewById<RadioGroup>(R.id.ratingRadioGroup)
-        // Find the cancel button in the layout
-        val btnCancel = rootView.findViewById<Button>(R.id.cancel)
-        // Find the submit button in the layout
-        val btnSubmit = rootView.findViewById<Button>(R.id.submit)
-        // Set a click listener for the cancel button
-        btnCancel.setOnClickListener {
-            // Dismiss the dialog when cancel button is clicked
-            dismiss()
-        }
-        // Set a click listener for the submit button
-        btnSubmit.setOnClickListener{
-            // Get the ID of the selected radio button
-            val selectedID = ratingRadioGroup.checkedRadioButtonId
-            // Find the selected radio button
-            val radio = rootView.findViewById<RadioButton>(selectedID)
-            // Get the text of the selected radio button
-            var ratingResult = radio.text.toString()
-            // Show a toast with the selected rating
-            Toast.makeText(context,"You rated:$ratingResult",Toast.LENGTH_LONG).show()
-            // Dismiss the dialog
-            dismiss()
-        }
-        // Return the inflated view
-        return rootView
-    }
-}
+import numpy as np
+import matplotlib.pyplot as plt
+fig, ax = plt.subplots()
+xmin, xmax = -0.2, 1.4
+ymin, ymax = -0.1, 1.1
+X = np.arange(xmin, xmax, 0.1)
+ax.scatter(0, 0, color="r")
+ax.scatter(0, 1, color="r")
+ax.scatter(1, 0, color="r")
+ax.scatter(1, 1, color="g")
+ax.set_xlim([xmin, xmax])
+ax.set_ylim([ymin, ymax])
+m, c = -1, 1.2
+ax.plot(X, m * X + c)
+plt.show()
 
 `;
 var text9= `
-ACTIVITY_MAIN.XML
-
-
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainActivity">
-    <EditText
-        android:id="@+id/username"
-        android:layout_width="406dp"
-        android:layout_height="62dp"
-        android:layout_marginTop="288dp"
-        android:hint="Username"
-        android:textSize="25dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-    <EditText
-        android:id="@+id/pass"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:textSize="25dp"
-        android:hint="Password"
-        android:inputType="textPassword"
-        app:layout_constraintTop_toBottomOf="@+id/username"
-        tools:layout_editor_absoluteX="0dp" />
-    <Button
-        android:id="@+id/loginbtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="878_766_LOGIN"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/pass"
-        app:layout_constraintVertical_bias="0.307" />
-</androidx.constraintlayout.widget.ConstraintLayout>
-
-
-SECOND_ACTIVITY.XML
-
-
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainActivity">
-    <TextView
-        android:id="@+id/display"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="878_766_hello"
-        android:textSize="30dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-</androidx.constraintlayout.widget.ConstraintLayout>
-
-
-MAINACTIVTY.KT
-
-package com.example.practical7
-
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
-import android.content.Intent
-import android.widget.Button
-import android.widget.EditText
-import android.widget.Toast
-import com.SecondActivity
-
-class MainActivity : AppCompatActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-        val usernameEditText = findViewById<EditText>(R.id.username)
-        val passwordEditText = findViewById<EditText>(R.id.pass)
-        val loginButton = findViewById<Button>(R.id.loginbtn)
-        loginButton.setOnClickListener {
-            val username = usernameEditText.text.toString()
-            val password = passwordEditText.text.toString()
-            // Check if username and password are correct
-            if (username == "Saloni&AK" && password == "pass@123") {
-                // If correct, launch SecondActivity
-                val intent = Intent(this, SecondActivity::class.java)
-                intent.putExtra("username", username)
-                startActivity(intent)
-                Toast.makeText(this,"Login Successful!",Toast.LENGTH_LONG).show()
-            } else {
-                // If incorrect, display error message
-                Toast.makeText(this, "Invalid username or password",
-                    Toast.LENGTH_SHORT).show()
-            }
-        }
-    }
-}
-
-
-
-SECOUNDACTIVITY.KT
-
-package com
-
-import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
-import android.widget.Button
-import android.widget.TextView
-import android.widget.Toast
-import androidx.appcompat.app.AlertDialog
-import com.example.practical7.R
-
-class SecondActivity : AppCompatActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.second_activity)
-        val username = intent.getStringExtra("username")
-        //val homebtn = findViewById<Button>(R.id.homepg)
-        val greetingTextView = findViewById<TextView>(R.id.display)
-        greetingTextView.text = "Hello $username!"
-        fun onBackPressed() {
-            val builder = AlertDialog.Builder(this)
-            builder.setTitle("Are you sure")
-            builder.setMessage("Do you want to close app")
-            builder.setPositiveButton("Yes", { dialogInterface, i ->
-                finishAffinity() })
-            builder.setNegativeButton("No", { dialogInterface, i -> })
-            builder.show()
-        }
-    }
-}
-
-
-
+disp("Practical Performed by: Roshni Gupta , Roll No : 09")
+function [yin, y]=net(j, w, x, temp, theta, yin, y)
+ yin=yin
+ y=y
+ for i=1:4
+ temp=temp+(y(i)*w(i,j));
+ end
+ yin(j)=x1(j)+temp;
+ if(yin(j)>theta)
+ y(j)=1;
+ elseif(yin(j)==theta)
+ y(j)=yin(j);
+ else
+ y(j)=-1
+ end
+ disp(yin)
+ disp(y)
+endfunction
+disp("Discreate Hopfield Network");
+theta=0;
+x=[1 1 1 -1]
+w=x'*x
+disp("Weight matrix with self connection")
+disp(w);
+for i=1:4
+for j=1:4
+ if(i==j)
+ w(i,j)=0
+ end
+end
+end
+disp("Weight matrix with no self connection");
+disp(w);
+disp("Given input pattern for testing");
+x1=[1 1 1 -1]
+y=[1 1 1 -1]
+temp=0;
+disp("By asynchronous updation method");
+disp("The net input calculated is :");
+yin=[0 0 0 0]
+[yin,y]= net(1,w,temp,theta,yin,y)
+[yin,y]= net(4,w,temp,theta,yin,y)
+[yin,y]= net(3,w,temp,theta,yin,y)
+[yin,y]= net(2,w,temp,theta,yin,y)
+disp("The output calculated from net input is :")
+disp (y)
 
 
 `;
 
 var text10= `
-ACTIVITY_MAIN.XML
-
-
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainActivity">
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="878_862_766_Notification"
-        android:textSize="24dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-    <Button
-        android:id="@+id/notifybtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="SHOW NOTIFICATION"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
-        app:layout_constraintVertical_bias="0.246" />
-</androidx.constraintlayout.widget.ConstraintLayout>
-
-
-ANDROIDMANIFEST.XML
-
-
-<?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools">
-    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
-    <application
-        android:allowBackup="true"
-        android:dataExtractionRules="@xml/data_extraction_rules"
-        android:fullBackupContent="@xml/backup_rules"
-        android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
-        android:supportsRtl="true"
-        android:theme="@style/Base.Theme.Practical8"
-        tools:targetApi="31">
-        <activity
-            android:name=".MainActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-    </application>
-</manifest>
-
-
-
-MAINACTIVTY.KT
-
-package com.example.practical8
-
-import android.annotation.SuppressLint
-import android.app.NotificationChannel
-import android.app.NotificationManager
-import android.content.Context
-import android.os.Build
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
-import android.widget.Button
-import androidx.core.app.NotificationCompat
-import androidx.core.app.NotificationManagerCompat
-class MainActivity : AppCompatActivity() {
-    private val CHANNEL_ID = "My_Channel"
-    private val notificationId = 101
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-        createNotificationChannel()
-        val button = findViewById<Button>(R.id.notifybtn)
-        button.setOnClickListener {
-            showNotification()
-        }
-    }
-
-    private fun createNotificationChannel() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            val name = "My Channel"
-            val descriptionText = "My Notification Channel"
-            val importance = NotificationManager.IMPORTANCE_DEFAULT
-            val channel = NotificationChannel(CHANNEL_ID, name,
-                importance).apply {
-                description = descriptionText
-            }
-            val notificationManager: NotificationManager =
-                getSystemService(Context.NOTIFICATION_SERVICE) as
-                        NotificationManager
-            notificationManager.createNotificationChannel(channel)
-        }
-    }
-    @SuppressLint("MissingPermission")
-    private fun showNotification() {
-        val builder = NotificationCompat.Builder(this, CHANNEL_ID)
-            .setSmallIcon(R.drawable.notify)
-            .setContentTitle("My Notification")
-            .setContentText("This is a notification created by a button click")
-                .setPriority(NotificationCompat.PRIORITY_DEFAULT)
-                    with(NotificationManagerCompat.from(this)) {
-                notify(notificationId, builder.build())
-            }
-    }
-}
+disp("Practical Performed by: Roshni Gupta , Roll No : 09")
+clear all;
+disp('Kohonen self organizing feature maps');
+disp('The input patterns are')
+x=[0 0 1 1; 1 0 0 0; 0 1 1 0; 0 0 0 1]
+alpha=0.5;
+disp('Since we have 4 input pattern and cluster unit to be formed is 2, the weight matrix is');
+w=[0.2 0.9;0.4 0.7; 0.6 0.5; 0.8 0.3]
+disp('The Learning rate of this epoch is');
+alpha
+i=1;
+j=1;
+k=1;
+m=1;
+while(k<=4)
+for j=1:2
+ temp=0;
+ for i=1:4
+ temp=temp + ((w(i,j)-x(k,i))^ 2);
+ end
+ D(j)=temp
+end
+if(D(1)<D(2))
+ J=1;
+else
+ J=2
+end
+disp('The winning unit is');
+disp(J)
+disp('Weight updation');
+for m=1:4
+ w(m,J)=w(m,J)+(alpha*(x(k,m)-w(m,J)));
+ end
+disp(w)
+k=k+1;
+disp(k)
+end
 
 
 `;
 
 var text11= `
-ACTIVITY_MAIN.XML
+clear all;
+disp('Name: Roshni Gupta, Roll no.: 09');
+disp('Adaptive Resonance Theory Network 1');
+L=2;
+m=3;
+n=4;
+rho=0.4;
+te=L/(L-1+n);
+te=te/2;
+b=[te te te;te te te;te te te;te te te];
+t=ones(3,4);
+s=[1 1 0 0;0 0 0 1;1 0 0 0;0 0 1 1];
+e=1
+while(e<=4)
+ temp=0;
+ for i=1:4
+ temp=temp+s(e,i);
+ end
+ ns=temp;
+ x(e,:)=s(e,:);
+ for i=1:3
+ temp=0;
+ for j=1:4
+ temp=temp+(x(e,j)*b(j,i));
+ end
+ yin(i)=temp;
+ end
+ j=1;
+ if (yin(j)>=yin(j+1)& yin(j)>= yin(j+2)) then
+ J=1;
+ elseif (yin(j+1)>= yin(j) & yin(j+1)>=yin(j+2))
+j=2;
+ else
+ J=3;
+ end
+ disp("J=");
+ disp(J);
+ for i=1:4
+ x1(i)=x(e,i)*t(J,i);
+ end
+ x1;
+ temp=0;
+ for i=1:4
+ temp=temp+x1(i);
+ end
+ nx=temp;
+ m=nx/ns;
+ if(m<rho)
+ yin(J)=-1
+ j=1;
+ if (yin(j)>=yin(j+1)& yin(j)>= yin(j+2)) then
+ J=1;
+ elseif (yin(j+1)>= yin(j) & yin(j+1)>=yin(j+2))
+ J=2;
+ else
+ J=3;
+ end
+end
+for i=1:4
+ temp=0;
+ temp=L-1+nx;
+ b(i,J)=(L*x1(i))/temp;
+end
+disp("b=");
+disp(b)
+for i=1:4
+ t(J,i)=x1(i);
+end
+disp("t=");
+disp(t)
+e=e+1;
+end
+`;
 
 
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainActivity">
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
-        android:text="Network Testing of Roll No 878_766"
-        android:fontFamily="sans-serif-condensed"
-        android:textSize="32sp"
-        android:textColor="@color/red"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="HardcodedText"
-        />
-</androidx.constraintlayout.widget.ConstraintLayout>
-
-
-ANDROIDMANIFEST.XML
-
-
-
-<?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    package="com.example.practical8b">
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE">
-    </uses-permission>
-    <application
-        android:allowBackup="true"
-        android:dataExtractionRules="@xml/data_extraction_rules"
-        android:fullBackupContent="@xml/backup_rules"
-        android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
-        android:supportsRtl="true"
-        android:theme="@style/Theme.AppCompat"
-        tools:targetApi="31">
-        <activity
-            android:name="com.example.practical8b.MainActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-    </application>
-</manifest>
-
-
-
-
-MAINACTIVITY.KT
-
-
-package com.example.practical8b
-
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
-import android.content.Context
-import android.net.ConnectivityManager
-import android.widget.Toast
-@Suppress("DEPRECATION")
-class MainActivity : AppCompatActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-        val c = applicationContext.getSystemService(
-            Context.CONNECTIVITY_SERVICE) as ConnectivityManager
-        val networkinfo = c.activeNetworkInfo
-        if( networkinfo != null && networkinfo.isConnected)
-        {
-            if(networkinfo.type == ConnectivityManager.TYPE_MOBILE)
-            {
-                Toast.makeText(applicationContext,
-                    "Connected to Mobile Network",Toast.LENGTH_LONG).show()
-            }
-            if(networkinfo.type == ConnectivityManager.TYPE_WIFI)
-            {
-                Toast.makeText(applicationContext,
-                    "Connected to WIFI Network",Toast.LENGTH_LONG).show()
-            }
-        }
-        else{
-            Toast.makeText(applicationContext,
-                "You are offline",Toast.LENGTH_LONG).show()
-        }
-    }
-}
-
-
+var text12= `
+print("Practical No 7A: Membership and Identity Operators (in, not in)")
+def overlapping(list1, list2):
+    for i in range(0, len(list1)):
+        for j in range(0, len(list2)):
+            if list1[i] == list2[j]:
+                return 1
+    return 0 
+list1 = [2, 3, 4, 5]
+list2 = [6, 7, 8, 9]
+if overlapping(list1, list2):
+    print("Overlapping elements found.")
+else:
+    print("No overlapping elements.")
 
 `;
 
+var text13= `
+print("Practical No 7B :Membership and identity Operators is,not is")
+print("Practical perform by Roll No :09,Roshni Gupta")
+print("Use of 'is' identity operator")
+x=5
+if(type(x) is int):
+ 	print("True")
+else:
+ print("False")
+# Python program to illustrate the use of 'is not' identity operator
+print("\n \n use of 'is not' identity operator")
+x=5.2
+if(type(x) is not int):
+ 	print("True")
+else:
+ 	print("False")
+
+`;
+
+var text14= `
+import fuzzywuzzy
+from fuzzywuzzy import fuzz
+print("Practical perform by Roll No :09,Roshni Gupta")
+Str_A ='Fuzzywuzzy is a lifesaver!'
+Str_B ='fuzzy wuzzy is a LIFE SAVER.'
+ratio = fuzz.ratio(Str_A.lower(), Str_B.lower())
+print('Similariy score: {}' .format(ratio))
+Str_A ='Chicago Illinois'
+Str_B ='chicago'
+ratio = fuzz.partial_ratio(Str_A.lower(), Str_B.lower())
+print('partial_ratio: {}' .format(ratio))
+Str_A ='Gunner William kline'
+Str_B ='Kline, Gunner William'
+ratio = fuzz.token_sort_ratio(Str_A, Str_B)
+print('token_sort_ratio: {}' .format(ratio))
+Str_A ='The 300 meter steepliechase winner, Soufiane E1 Bakkali'
+Str_B ='Soufiane E1 Bakkali'
+ratio = fuzz.token_set_ratio(Str_A, Str_B)
+print('token_set_ratio: {}' .format(ratio))
+
+`;
+var text15= `
+import numpy as np
+import skfuzzy as fuzz
+from skfuzzy import control as ctrl
+quality = ctrl.Antecedent(np.arange(0,11,1),'quality')
+service = ctrl.Antecedent(np.arange(0,11,1),'service')
+tip = ctrl.Consequent(np.arange(0,26,1),'tip')
+#Auto-membership function population is possible with .automf(3,5 or 7)
+quality.automf(3)
+service.automf(3)
+#Custom membership functions can be built interactively with a familiar,
+#pythonic API
+tip['low'] = fuzz.trimf(tip.universe, [0,0,13])
+tip['medium'] = fuzz.trimf(tip.universe,[0,13,25])
+tip['high']= fuzz.trimf(tip.universe,[13,25,25])
+quality.view()
+service.view()
+tip.view()
+rule1 = ctrl.Rule(quality['poor'] | service['poor'], tip['low'])
+rule2 = ctrl.Rule(service['average'], tip['medium'])
+rule3 = ctrl.Rule(service['good'] | quality['good'], tip['high'])
+rule1.view()
+#defined rules, we can simply create a control system via
+tipping_ctrl = ctrl.ControlSystem([rule1, rule2, rule3])
+tipping = ctrl.ControlSystemSimulation(tipping_ctrl)
+# Pass inputs to the ControlSystem using Antecedent labels with Pythonic API
+# Note: if you like passing many inputs all at once, use .inputs(dict_of_data)
+tipping.input['quality'] = 6.5
+tipping.input['service'] = 9.8
+# Crunch the numbers
+tipping.compute()
+tip.view(sim=tipping)
+
+`;
 function copyText(text) {
     navigator.clipboard.writeText(text).then(function () {
         document.getElementById('copiedMsg').innerHTML = "Text Copied"
