@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Copy Text Buttons</title>
+    <style>
+        button {
+            margin: 5px;
+        }
+
+        body {
+            background-color: #f0f0f0;
+            /* Light gray background */
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        button {
+            margin: 10px;
+            padding: 10px;
+            font-size: 16px;
+            background-color: #ddd;
+            /* Light gray button background */
+            border: 1px solid #aaa;
+            /* Dark gray border */
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #ccc;
+            /* Slightly darker background on hover */
+        }
+    </style>
+</head>
+
+<body>
+
+    <button onclick="copyText(text1)">Simple linear</button>
+    <button onclick=" copyText(text2)">nnbipolarbinarysig</button>
+    <button onclick="copyText(text3)">&!McPitts</button>
+    <button onclick="copyText(text4)">XOR</button>
+    <button onclick="copyText(text5)">Hebb </button>
+    <button onclick="copyText(text6)">Delta</button>
+    <button onclick="copyText(text7)">BPA </button>
+    <button onclick="copyText(text8)">LSepar</button>
+    <button onclick="copyText(text9)">hopfi </button>
+    <button onclick="copyText(text10)">koh </button>
+    <button onclick="copyText(text11)">ART </button>
+    <button onclick="copyText(text12)">identity </button>
+    <button onclick="copyText(text13)">mem&iden </button>
+    <button onclick="copyText(text14)">ratio </button>
+    <button onclick="copyText(text15)">tipp </button>
+    
+    
+    <p id="copiedMsg"></p>
+    <script>
+
+        var text1= `
+print("Practical Performed by: Roshni Gupta , Roll No : 09")
+print("Enter the value of x1:-")
+x1 = float(input())
+print("Enter the value of x2:-")
+x2 = float(input())
+print("Enter the value of w1:-")
+w1 = float(input())
+print("Enter the value of w2:-")
+w2 = float(input())
+print("Calculating Net Input: ")
+net_input = x1 * w1 + x2 * w2
+("Net Input : ", net_input)
+print("Applying Activation Function:")
+threshold = 0
+if net_input >= threshold:
+    	print("1")
+else:
+    	print("0")
+
+         `;
+
+        var text2 = ` 
+import math
+print("Practical Performed by: Roshni Gupta , Roll No : 09")
+x1=0.3
+x2=0.5
+x3=0.6
+print("Value of x1= ",x1)
+print("Value of x2= ",x2)
+print("Value of x3= ",x3)
+w1=0.2
+w2=0.1
+w3=-0.3
+print("Value of w1= ",w1)
+print("Value of w2= ",w2)
+print("Value of w3= ",w3)
+yin=x1*w1 + x2*w2 + x3*w3
+print("Net Input :",yin)
+#Applying Binary Sigmoidal function
+funct_x1= 1/(1+math.exp(-yin))
+print("After applying sigmoidal function: ",funct_x1)
+#Applying Bipolar Sigmoidal function
+funct_x2= (1-math.exp(-yin))/(1+math.exp(-yin))
+print("After applying Bipolar sigmoidal function: ",funct_x2)
+
+     
+`;
+
+        var text3 = `
+ print("Practical Performed by: Roshni Gupta , Roll No : 09")
+num_ip=int(input("Enter the no of inputs:"))
+w1=1
+w2=1
+print("for the",num_ip,"inputs calculates the net input")
+x1=[]
+x2=[]
+for i in range(0,num_ip):
+ e1=int(input("x1="))
+ e2=int(input("x2="))
+ x1.append(e1)
+ x2.append(e2)
+ print("x1=",x1)
+ print("x2=",x2)
+ n=[w1*i for i in x1]
+ m=[w2*i for i in x2]
+ Yin=[]
+for i in range(0,num_ip):
+ Yin.append(n[i]+m[i])
+print("\n Excitetory weight")
+print("Yin=",Yin)
+#Assume one weight as excitetory and one as inhibitory
+w1=1
+w2=-1
+n=[w1*i for i in x1]
+m=[w2*i for i in x2]
+Yin=[]
+for i in range(0,num_ip):
+    Yin.append(n[i]+m[i])
+print("\n Excitetory weight")
+print("Yin=",Yin)
+print("\n after assuming one weight as excitetory and one as inhibitory")
+y=[]
+for i in range(0,num_ip):
+ if(Yin[i]>=1):
+     e=1
+     y.append(e)
+ if(Yin[i]<1):
+     e=0
+     y.append(e)
+ print("y=",y)
+
+`;
+
+        var text4 = `
+import numpy as np
+print("enter weights")
+w11=int(input('weight w11='))
+w12=int(input('weight w12='))
+w21=int(input('weight w21='))
+w22=int(input('weight w22='))
+v1=int(input('weight v1='))
+v2=int(input('weight v2='))
+print('Enter threshold Values')
+theta=int(input('theta='))
+x1=np.array([0,0,1,1])
+x2=np.array([0,1,0,1])
+z=np.array([0,1,1,0])
+y1=np.zeros((4,))
+y2=np.zeros((4,))
+y=np.zeros((4,))
+zin1=np.zeros((4,))
+zin2=np.zeros((4,))
+zin1=x1*w11+x2*w21
+zin2=x1*w21+x2*w22
+print("z1",zin1)
+print("z2",zin2)
+for i in range(0,4):
+ if zin1[i]>=theta:
+     y1[i]=1
+ else:
+     y1[i]=0
+ if zin2[i]>=theta:
+     y2[i]=1
+ else:
+     y2[i]=0
+yin=np.array([])
+yin=y1*v1+y2*v2
+for i in range(0,4):
+ if yin[i]>=theta:
+     y[i]=1
+ else:
+     y[i]=0
+print("yin",yin)
+print('output of net')
+y=y.astype(int)
+print("y",y)
+print("z",z)
+
+
+        `;
+
+        var text5 = `
+X = [[1,1], [1,-1], [-1,1], [-1,-1]]
+print("Inputs = ")
+for x in X:
+ print(x)
+Y = [1,-1,-1,-1]
+print("Target = ",Y)
+w = [0,0]
+print("Initial weight values = ", w)
+for i in range(len(X)):
+ for j in range(len(w)):
+     w[j] = w[j] + X[i][j] + Y[i]
+ print(i, "Iteration, Weight values = ",w)
+
+
+
+`;
+
+        var text6 = `
+print("Practical Performed by: Roshni Gupta , Roll No : 09")
+import numpy as np
+import time
+np.set_printoptions(precision=9)
+x=np.zeros((3,))
+weights=np.zeros((3,))
+desired=np.zeros((3,))
+actual=np.zeros((3,))
+for i in range(0,3):
+ x[i]=float(input("Initial Inputs:"))
+for i in range(0,3):
+ weights[i]=float(input("Initial Weights:"))
+for i in range(0,3):
+ desired[i]=float(input("Desired Weights:"))
+for i in range(0,3):
+ actual=x[i]*weights
+print("actual",actual)
+print("desired",desired)
+a=float(input("Enter Learning Rate:"))
+while True:
+ if np.array_equal(desired,actual):
+     break #no change
+ else:
+     for i in range(0,3):
+         weights[i]=weights[i]+a*(desired[i]-actual[i])
+         actual=x[i]*weights
+         print("Weights",weights)
+         print("Actual",actual)
+         print("desired",desired)
+print("FINAL OUTPUT")
+print("Corrected Weights",weights)
+print("Actual",actual)
+print("desired",desired)
+    
+
+`;
+
+var text7 = `
+import numpy as np
+import decimal
+import math
+np.set_printoptions(precision=4)
+v1=np.array([0.6,-0.3])
+v2=np.array([-0.1,0.4])
+w=np.array([-0.2,0.4,0.1])
+b=np.array([0.3,0.5])
+x=np.array([0,1])
+alpha=0.25
+zin=[]
+print("calculate net input to z layer")
+for i in range (0,2):
+ zin.append(round(b[i]+
+ x[0]*v1[i]+x[1]*v2[i],4))
+print("zin=",zin)
+z=[]
+print("Apply activation function to calculate output")
+for i in range(0,2):
+ z.append(round(1/(1+math.exp(-zin[i])),4))
+print("z=",z)
+print("calculate net input to output layer")
+yin=w[0]+z[0]*w[1]+z[1]*w[2]
+print("yin=",yin)
+print("calculate net output")
+y=round(1/(1+math.exp(-yin)),4)
+print("y=",y)
+fyin=y*(1-y)
+dk=round((1-y)*fyin,4)
+print("dk",dk)
+dw1=alpha*dk*z[0]
+dw2=alpha*dk*z[1]
+dw0=alpha*dk
+print("compute error portion in delta")
+din=[]
+for i in range(1,3):
+ din.append(dk*w[i])
+print("din=",din)
+fzin=[]
+d=[]
+print("error in delta")
+for i in range(0,2):
+ fzin.append(round(z[i]*(1-z[i]),4))
+ d.append(round(din[i]*fzin[i],4))
+print("fzin=",fzin)
+print("d=",d)
+dv=[[0,0],[0,0],[0,0]]
+print("change in weights between input and hidden layer")
+for i in range(0,3):
+ for j in range(0,2):
+     if i<=1:
+         dv[i][j]=alpha*d[j]*x[i]
+ else:
+     dv[i][j]=alpha*d[j]
+print(dv)
+print("Final weights of network")
+for i in range(0,2):
+ v1[i]=v1[i]+dv[0][i]
+print("v1=",v1)
+for i in range(0,2):
+ v2[i]=v2[i]+dv[1][i]
+print("v2=",v2)
+for i in range(0,2):
+ b[i]=b[i]+dv[1][i]
+print("b=",b)
+w[1]=w[1]+dw1
+w[2]=w[2]+dw2
+w[0]=w[0]+dw0
+print("w=",w)
+
+
+
+`;
+
+var text8= `
+import numpy as np
+import matplotlib.pyplot as plt
+fig, ax = plt.subplots()
+xmin, xmax = -0.2, 1.4
+ymin, ymax = -0.1, 1.1
+X = np.arange(xmin, xmax, 0.1)
+ax.scatter(0, 0, color="r")
+ax.scatter(0, 1, color="r")
+ax.scatter(1, 0, color="r")
+ax.scatter(1, 1, color="g")
+ax.set_xlim([xmin, xmax])
+ax.set_ylim([ymin, ymax])
+m, c = -1, 1.2
+ax.plot(X, m * X + c)
+plt.show()
+
+`;
+var text9= `
+disp("Practical Performed by: Roshni Gupta , Roll No : 09")
+function [yin, y]=net(j, w, x, temp, theta, yin, y)
+ yin=yin
+ y=y
+ for i=1:4
+ temp=temp+(y(i)*w(i,j));
+ end
+ yin(j)=x1(j)+temp;
+ if(yin(j)>theta)
+ y(j)=1;
+ elseif(yin(j)==theta)
+ y(j)=yin(j);
+ else
+ y(j)=-1
+ end
+ disp(yin)
+ disp(y)
+endfunction
+disp("Discreate Hopfield Network");
+theta=0;
+x=[1 1 1 -1]
+w=x'*x
+disp("Weight matrix with self connection")
+disp(w);
+for i=1:4
+for j=1:4
+ if(i==j)
+ w(i,j)=0
+ end
+end
+end
+disp("Weight matrix with no self connection");
+disp(w);
+disp("Given input pattern for testing");
+x1=[1 1 1 -1]
+y=[1 1 1 -1]
+temp=0;
+disp("By asynchronous updation method");
+disp("The net input calculated is :");
+yin=[0 0 0 0]
+[yin,y]= net(1,w,temp,theta,yin,y)
+[yin,y]= net(4,w,temp,theta,yin,y)
+[yin,y]= net(3,w,temp,theta,yin,y)
+[yin,y]= net(2,w,temp,theta,yin,y)
+disp("The output calculated from net input is :")
+disp (y)
+
+
+`;
+
+var text10= `
+disp("Practical Performed by: Roshni Gupta , Roll No : 09")
+clear all;
+disp('Kohonen self organizing feature maps');
+disp('The input patterns are')
+x=[0 0 1 1; 1 0 0 0; 0 1 1 0; 0 0 0 1]
+alpha=0.5;
+disp('Since we have 4 input pattern and cluster unit to be formed is 2, the weight matrix is');
+w=[0.2 0.9;0.4 0.7; 0.6 0.5; 0.8 0.3]
+disp('The Learning rate of this epoch is');
+alpha
+i=1;
+j=1;
+k=1;
+m=1;
+while(k<=4)
+for j=1:2
+ temp=0;
+ for i=1:4
+ temp=temp + ((w(i,j)-x(k,i))^ 2);
+ end
+ D(j)=temp
+end
+if(D(1)<D(2))
+ J=1;
+else
+ J=2
+end
+disp('The winning unit is');
+disp(J)
+disp('Weight updation');
+for m=1:4
+ w(m,J)=w(m,J)+(alpha*(x(k,m)-w(m,J)));
+ end
+disp(w)
+k=k+1;
+disp(k)
+end
+
+
+`;
+
+var text11= `
+clear all;
+disp('Name: Roshni Gupta, Roll no.: 09');
+disp('Adaptive Resonance Theory Network 1');
+L=2;
+m=3;
+n=4;
+rho=0.4;
+te=L/(L-1+n);
+te=te/2;
+b=[te te te;te te te;te te te;te te te];
+t=ones(3,4);
+s=[1 1 0 0;0 0 0 1;1 0 0 0;0 0 1 1];
+e=1
+while(e<=4)
+ temp=0;
+ for i=1:4
+ temp=temp+s(e,i);
+ end
+ ns=temp;
+ x(e,:)=s(e,:);
+ for i=1:3
+ temp=0;
+ for j=1:4
+ temp=temp+(x(e,j)*b(j,i));
+ end
+ yin(i)=temp;
+ end
+ j=1;
+ if (yin(j)>=yin(j+1)& yin(j)>= yin(j+2)) then
+ J=1;
+ elseif (yin(j+1)>= yin(j) & yin(j+1)>=yin(j+2))
+j=2;
+ else
+ J=3;
+ end
+ disp("J=");
+ disp(J);
+ for i=1:4
+ x1(i)=x(e,i)*t(J,i);
+ end
+ x1;
+ temp=0;
+ for i=1:4
+ temp=temp+x1(i);
+ end
+ nx=temp;
+ m=nx/ns;
+ if(m<rho)
+ yin(J)=-1
+ j=1;
+ if (yin(j)>=yin(j+1)& yin(j)>= yin(j+2)) then
+ J=1;
+ elseif (yin(j+1)>= yin(j) & yin(j+1)>=yin(j+2))
+ J=2;
+ else
+ J=3;
+ end
+end
+for i=1:4
+ temp=0;
+ temp=L-1+nx;
+ b(i,J)=(L*x1(i))/temp;
+end
+disp("b=");
+disp(b)
+for i=1:4
+ t(J,i)=x1(i);
+end
+disp("t=");
+disp(t)
+e=e+1;
+end
+`;
+
+
+var text12= `
+print("Practical No 7A: Membership and Identity Operators (in, not in)")
+def overlapping(list1, list2):
+    for i in range(0, len(list1)):
+        for j in range(0, len(list2)):
+            if list1[i] == list2[j]:
+                return 1
+    return 0 
+list1 = [2, 3, 4, 5]
+list2 = [6, 7, 8, 9]
+if overlapping(list1, list2):
+    print("Overlapping elements found.")
+else:
+    print("No overlapping elements.")
+
+`;
+
+var text13= `
+print("Practical No 7B :Membership and identity Operators is,not is")
+print("Practical perform by Roll No :09,Roshni Gupta")
+print("Use of 'is' identity operator")
+x=5
+if(type(x) is int):
+ 	print("True")
+else:
+ print("False")
+# Python program to illustrate the use of 'is not' identity operator
+print("\n \n use of 'is not' identity operator")
+x=5.2
+if(type(x) is not int):
+ 	print("True")
+else:
+ 	print("False")
+
+`;
+
+var text14= `
+import fuzzywuzzy
+from fuzzywuzzy import fuzz
+print("Practical perform by Roll No :09,Roshni Gupta")
+Str_A ='Fuzzywuzzy is a lifesaver!'
+Str_B ='fuzzy wuzzy is a LIFE SAVER.'
+ratio = fuzz.ratio(Str_A.lower(), Str_B.lower())
+print('Similariy score: {}' .format(ratio))
+Str_A ='Chicago Illinois'
+Str_B ='chicago'
+ratio = fuzz.partial_ratio(Str_A.lower(), Str_B.lower())
+print('partial_ratio: {}' .format(ratio))
+Str_A ='Gunner William kline'
+Str_B ='Kline, Gunner William'
+ratio = fuzz.token_sort_ratio(Str_A, Str_B)
+print('token_sort_ratio: {}' .format(ratio))
+Str_A ='The 300 meter steepliechase winner, Soufiane E1 Bakkali'
+Str_B ='Soufiane E1 Bakkali'
+ratio = fuzz.token_set_ratio(Str_A, Str_B)
+print('token_set_ratio: {}' .format(ratio))
+
+`;
+var text15= `
+import numpy as np
+import skfuzzy as fuzz
+from skfuzzy import control as ctrl
+quality = ctrl.Antecedent(np.arange(0,11,1),'quality')
+service = ctrl.Antecedent(np.arange(0,11,1),'service')
+tip = ctrl.Consequent(np.arange(0,26,1),'tip')
+#Auto-membership function population is possible with .automf(3,5 or 7)
+quality.automf(3)
+service.automf(3)
+#Custom membership functions can be built interactively with a familiar,
+#pythonic API
+tip['low'] = fuzz.trimf(tip.universe, [0,0,13])
+tip['medium'] = fuzz.trimf(tip.universe,[0,13,25])
+tip['high']= fuzz.trimf(tip.universe,[13,25,25])
+quality.view()
+service.view()
+tip.view()
+rule1 = ctrl.Rule(quality['poor'] | service['poor'], tip['low'])
+rule2 = ctrl.Rule(service['average'], tip['medium'])
+rule3 = ctrl.Rule(service['good'] | quality['good'], tip['high'])
+rule1.view()
+#defined rules, we can simply create a control system via
+tipping_ctrl = ctrl.ControlSystem([rule1, rule2, rule3])
+tipping = ctrl.ControlSystemSimulation(tipping_ctrl)
+# Pass inputs to the ControlSystem using Antecedent labels with Pythonic API
+# Note: if you like passing many inputs all at once, use .inputs(dict_of_data)
+tipping.input['quality'] = 6.5
+tipping.input['service'] = 9.8
+# Crunch the numbers
+tipping.compute()
+tip.view(sim=tipping)
+
+`;
+function copyText(text) {
+    navigator.clipboard.writeText(text).then(function () {
+        document.getElementById('copiedMsg').innerHTML = "Text Copied"
+    }).catch(function (err) {
+        console.error('Unable to copy text', err);
+    });
+}
+</script>
+
+</body>
+
+</html>
