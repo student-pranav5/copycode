@@ -1218,11 +1218,29 @@ print("data saved")
 
 
 function copyText(text) {
-    navigator.clipboard.writeText(text).then(function () {
-        document.getElementById('copiedMsg').innerHTML = "Text Copied"
-    }).catch(function (err) {
-        console.error('Unable to copy text', err);
-    });
+    // Create a temporary textarea element
+    const tempTextArea = document.createElement("textarea");
+    tempTextArea.value = text; // Set the text to copy
+    tempTextArea.style.position = "fixed"; // Prevent scrolling
+    document.body.appendChild(tempTextArea); // Add it to the document
+    tempTextArea.select(); // Select the text
+
+    try {
+        // Attempt to copy the text
+        document.execCommand("copy");
+        document.getElementById("copiedMsg").innerHTML = "Text Copied!";
+    } catch (err) {
+        console.error("Unable to copy text: ", err);
+        document.getElementById("copiedMsg").innerHTML = "Failed to Copy Text";
+    }
+
+    // Remove the temporary textarea element
+    document.body.removeChild(tempTextArea);
+
+    // Clear the copied message after 2 seconds
+    setTimeout(() => {
+        document.getElementById("copiedMsg").innerHTML = "";
+    }, 2000);
 }
 </script>
 
