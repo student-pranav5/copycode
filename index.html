@@ -36,20 +36,62 @@
 <body>
 
     <h1>Copy Text Example</h1>
+
+    <!-- Buttons for each code block -->
     <button onclick="copyText(text1)">csv2h</button>
     <button onclick="copyText(text2)">x2h</button>
     <button onclick="copyText(text3)">j2h</button>
+    <button onclick="copyText(text4)">sql2h</button>
+    <button onclick="copyText(text5)">pic2h</button>
+    <button onclick="copyText(text6)">v2h</button>
+    <button onclick="copyText(text7)">a2h</button>
+    <button onclick="copyText(text8)">fixer</button>
+    <button onclick="copyText(text9)">binbuck</button>
+    <button onclick="copyText(text10)">aggreg</button>
+    <button onclick="copyText(text11)">outlier</button>
+    <button onclick="copyText(text12)">audit</button>
+    <button onclick="copyText(text13)">dataprocessR</button>
 
     <p id="copiedMsg"></p>
 
     <script>
-        const text1 = `Sample text for csv2h`;
-        const text2 = `Sample text for x2h`;
-        const text3 = `Sample text for j2h`;
+        // Text blocks (only a few shown here for demonstration; add all your blocks similarly)
+        const text1 = `
+import pandas as pd
+sInputFileName='C:/Users/NANDINI/OneDrive/Documents/Power BI Desktop/Pizza_sales/pizzas.csv'
+InputData=pd.read_csv(sInputFileName,encoding="latin-1")
+# Rest of your code here...
+        `;
+        const text2 = `
+import pandas as pd
+import xml.etree.ElementTree as ET
 
+def df2xml(data):
+    # Rest of your code here...
+`;
+        const text3 = `
+# Utility Start JSON to HORUS =================================
+import pandas as pd
+sInputFileName='D:/MSCIT/ds prac/Country_Code.json'
+# Rest of your code here...
+        `;
+        const text4 = `
+import sqlite3 as sq
+sInputFileName='D:/MSCIT/ds prac/utility.db'
+# Rest of your code here...
+        `;
+        const text5 = `
+# Utility Start Picture to HORUS =================================
+import imageio.v2 as imageio
+# Rest of your code here...
+        `;
+
+        // Add the rest of your text blocks here (text6, text7, ...)
+
+        // Function to copy text using Clipboard API
         async function copyText(text) {
             try {
-                // Use Clipboard API to write the text to the clipboard
+                // Use Clipboard API to write text to the clipboard
                 await navigator.clipboard.writeText(text);
 
                 // Notify user of success
