@@ -37,578 +37,1186 @@
 
 <body>
 
-    <button onclick="copyText(text1)">Simple linear</button>
-    <button onclick=" copyText(text2)">nnbipolarbinarysig</button>
-    <button onclick="copyText(text3)">&!McPitts</button>
-    <button onclick="copyText(text4)">XOR</button>
-    <button onclick="copyText(text5)">Hebb </button>
-    <button onclick="copyText(text6)">Delta</button>
-    <button onclick="copyText(text7)">BPA </button>
-    <button onclick="copyText(text8)">LSepar</button>
-    <button onclick="copyText(text9)">hopfi </button>
-    <button onclick="copyText(text10)">koh </button>
-    <button onclick="copyText(text11)">ART </button>
-    <button onclick="copyText(text12)">identity </button>
-    <button onclick="copyText(text13)">mem&iden </button>
-    <button onclick="copyText(text14)">ratio </button>
-    <button onclick="copyText(text15)">tipp </button>
-    
-    
+    <button onclick="copyText(text1)">csv2h</button>
+    <button onclick=" copyText(text2)">x2h</button>
+    <button onclick="copyText(text3)">j2h</button>
+    <button onclick="copyText(text4)">sql2h</button>
+    <button onclick="copyText(text5)">pic2h</button>
+    <button onclick="copyText(text6)">v2h</button>
+    <button onclick="copyText(text7)">a2h</button>
+    <button onclick="copyText(text8)">fixer</button>
+    <button onclick="copyText(text9)">binbuck</button>
+    <button onclick="copyText(text10)">aggreg</button>
+    <button onclick="copyText(text11)">outlier</button>
+<button onclick="copyText(text12)">audit</button>
+<button onclick="copyText(text13)">dataprocessR</button>
+<button onclick="copyText(text14)">retrieveAttributes</button>
+<button onclick="copyText(text15)">DataPattern</button>
+<button onclick="copyText(text16)">LoadingIP_DATA</button>
+<button onclick="copyText(text17)">errorManage</button>
+<button onclick="copyText(text18)">n/wRouting</button>
+<button onclick="copyText(text19)">acyclicG</button>
+<button onclick="copyText(text20)">Billboards</button>
+<button onclick="copyText(text21)">GML</button>
+<button onclick="copyText(text22)">planLocationWareh</button>
+<button onclick="copyText(text23)">clusterToNewwareh</button>
+<button onclick="copyText(text24)">shippingRouters</button>
+<button onclick="copyText(text25)">deleteBestpacking</button>
+<button onclick="copyText(text26)">deliveryRoute</button>
+<button onclick="copyText(text27)">simpleForexTrading</button>
+<button onclick="copyText(text28)">processBalanceSheet</button>
+<button onclick="copyText(text29)">generatePayroll</button>
+<button onclick="copyText(text30)">hubLS</button>
+<button onclick="copyText(text31)">transforming</button>
+<button onclick="copyText(text32)">organizing</button>
+<button onclick="copyText(text33)">generating</button>
+
     <p id="copiedMsg"></p>
     <script>
 
         var text1= `
-print("Practical Performed by: Roshni Gupta , Roll No : 09")
-print("Enter the value of x1:-")
-x1 = float(input())
-print("Enter the value of x2:-")
-x2 = float(input())
-print("Enter the value of w1:-")
-w1 = float(input())
-print("Enter the value of w2:-")
-w2 = float(input())
-print("Calculating Net Input: ")
-net_input = x1 * w1 + x2 * w2
-("Net Input : ", net_input)
-print("Applying Activation Function:")
-threshold = 0
-if net_input >= threshold:
-    	print("1")
-else:
-    	print("0")
+import pandas as pd
+sInputFileName='C:/Users/NANDINI/OneDrive/Documents/Power BI Desktop/Pizza_sales/pizzas.csv'
+InputData=pd.read_csv(sInputFileName,encoding="latin-1")
+print('Input Data Values ===================================')
+print(InputData)
+print('=====================================================')
+ProcessData=InputData
+# Remove columns ISO-2-Code and ISO-3-CODE
+ProcessData.drop('size', axis=1,inplace=True)
+ProcessData.drop('pizza_type_id', axis=1,inplace=True)
+# Rename Country and ISO-M49
+ProcessData.rename(columns={'pizza_id': 'pid'}, inplace=True)
+ProcessData.rename(columns={'price': 'Amount'}, inplace=True)
+# Set new Index
+ProcessData.set_index('pid', inplace=True)
+# Sort data by CurrencyNumber
+ProcessData.sort_values('Amount', axis=0, ascending=False, inplace=True)
+print('Process Data Values =================================')
+print(ProcessData)
+print('=====================================================')
+OutputData=ProcessData
+sOutputFileName = 'C:/Users/NANDINI/OneDrive/Documents/Power BI Desktop/Pizza_sales/pizzaaa.csv'
+OutputData.to_csv(sOutputFileName, index = False)
+print('CSV to HORUS - Done')
 
-         `;
-
-        var text2 = ` 
-import math
-print("Practical Performed by: Roshni Gupta , Roll No : 09")
-x1=0.3
-x2=0.5
-x3=0.6
-print("Value of x1= ",x1)
-print("Value of x2= ",x2)
-print("Value of x3= ",x3)
-w1=0.2
-w2=0.1
-w3=-0.3
-print("Value of w1= ",w1)
-print("Value of w2= ",w2)
-print("Value of w3= ",w3)
-yin=x1*w1 + x2*w2 + x3*w3
-print("Net Input :",yin)
-#Applying Binary Sigmoidal function
-funct_x1= 1/(1+math.exp(-yin))
-print("After applying sigmoidal function: ",funct_x1)
-#Applying Bipolar Sigmoidal function
-funct_x2= (1-math.exp(-yin))/(1+math.exp(-yin))
-print("After applying Bipolar sigmoidal function: ",funct_x2)
-
-     
+                
 `;
 
-        var text3 = `
- print("Practical Performed by: Roshni Gupta , Roll No : 09")
-num_ip=int(input("Enter the no of inputs:"))
-w1=1
-w2=1
-print("for the",num_ip,"inputs calculates the net input")
-x1=[]
-x2=[]
-for i in range(0,num_ip):
- e1=int(input("x1="))
- e2=int(input("x2="))
- x1.append(e1)
- x2.append(e2)
- print("x1=",x1)
- print("x2=",x2)
- n=[w1*i for i in x1]
- m=[w2*i for i in x2]
- Yin=[]
-for i in range(0,num_ip):
- Yin.append(n[i]+m[i])
-print("\n Excitetory weight")
-print("Yin=",Yin)
-#Assume one weight as excitetory and one as inhibitory
-w1=1
-w2=-1
-n=[w1*i for i in x1]
-m=[w2*i for i in x2]
-Yin=[]
-for i in range(0,num_ip):
-    Yin.append(n[i]+m[i])
-print("\n Excitetory weight")
-print("Yin=",Yin)
-print("\n after assuming one weight as excitetory and one as inhibitory")
-y=[]
-for i in range(0,num_ip):
- if(Yin[i]>=1):
-     e=1
-     y.append(e)
- if(Yin[i]<1):
-     e=0
-     y.append(e)
- print("y=",y)
+        var text2 = ` 
+import pandas as pd
+import xml.etree.ElementTree as ET
 
+def df2xml(data):
+ header = data.columns
+ root = ET.Element('root')
+ for row in range(data.shape[0]):
+ entry = ET.SubElement(root,'entry')
+ for index in range(data.shape[1]):
+ schild=str(header[index])
+ child = ET.SubElement(entry, schild)
+ if str(data[schild][row]) != 'nan':
+ child.text = str(data[schild][row])
+ else:
+ child.text = 'n/a'
+ entry.append(child)
+ result = ET.tostring(root)
+ return result
+
+def xml2df(xml_data):
+ root = ET.XML(xml_data)
+ all_records = []
+ for i, child in enumerate(root):
+ record = {}
+ for subchild in child:
+ record[subchild.tag] = subchild.text
+ all_records.append(record)
+ return pd.DataFrame(all_records)
+
+sInputFileName='D:\MSCIT\ds prac\Country_Code.xml'
+InputData = open(sInputFileName).read()
+print('=====================================================')
+print('Input Data Values ===================================')
+print('=====================================================')
+print(InputData)
+print('=====================================================')
+
+ProcessDataXML=InputData
+# XML to Data Frame
+ProcessData=xml2df(ProcessDataXML)
+# Remove columns ISO-2-Code and ISO-3-CODE
+ProcessData.drop('ISO-2-CODE', axis=1,inplace=True)
+ProcessData.drop('ISO-3-Code', axis=1,inplace=True)
+# Rename Country and ISO-M49
+ProcessData.rename(columns={'Country': 'CountryName'}, inplace=True)
+ProcessData.rename(columns={'ISO-M49': 'CountryNumber'}, inplace=True)
+# Set new Index
+ProcessData.set_index('CountryNumber', inplace=True)
+# Sort data by CurrencyNumber
+ProcessData.sort_values('CountryName', axis=0, ascending=False, inplace=True)
+print('=====================================================')
+print('Process Data Values =================================')
+print('=====================================================')
+print(ProcessData)
+print('=====================================================')
+#=============================================================
+# Output Agreement ===========================================
+#=============================================================
+OutputData=ProcessData
+sOutputFileName = 'D:\MSCIT\ds prac\HORUS-XML-Country.csv'
+OutputData.to_csv(sOutputFileName, index = False)
+print('=====================================================')
+print('XML to HORUS - Done')
+print('=====================================================')
+# Utility done ===============================================
+
+    `;
+
+        var text3 = `
+# Utility Start JSON to HORUS ================================= 
+# Standard Tools 
+import pandas as pd 
+# Input Agreement ============================================ sInputFileName='D:\MSCIT\ds prac\Country_Code.json' InputData=pd.read_json(sInputFileName, orient='index', encoding="latin-1") print('Input Data Values ===================================') print(InputData) print('=====================================================') 
+# Processing Rules =========================================== ProcessData=InputData # Remove columns ISO-2-Code and ISO-3-CODE ProcessData.drop('ISO-2-CODE', axis=1,inplace=True) 
+ProcessData.drop('ISO-3-Code', axis=1,inplace=True) 
+# Rename Country and ISO-M49 
+ProcessData.rename(columns={'Country': 'CountryName'}, inplace=True) ProcessData.rename(columns={'ISO-M49': 'CountryNumber'}, inplace=True) 
+# Set new Index ProcessData.set_index('CountryNumber', inplace=True) 
+# Sort data by CurrencyNumber ProcessData.sort_values('CountryName', axis=0, ascending=False, inplace=True) 
+print('Process Data Values =================================') print(ProcessData) print('=====================================================') 
+# Output Agreement =========================================== OutputData=ProcessData sOutputFileName='D:\MSCIT\ds prac\HORUS-JSON-Country.csv' 
+OutputData.to_csv(sOutputFileName, index = False) print('JSON to HORUS - Done') 
+# Utility done ===============================================
+
+        
 `;
 
         var text4 = `
-import numpy as np
-print("enter weights")
-w11=int(input('weight w11='))
-w12=int(input('weight w12='))
-w21=int(input('weight w21='))
-w22=int(input('weight w22='))
-v1=int(input('weight v1='))
-v2=int(input('weight v2='))
-print('Enter threshold Values')
-theta=int(input('theta='))
-x1=np.array([0,0,1,1])
-x2=np.array([0,1,0,1])
-z=np.array([0,1,1,0])
-y1=np.zeros((4,))
-y2=np.zeros((4,))
-y=np.zeros((4,))
-zin1=np.zeros((4,))
-zin2=np.zeros((4,))
-zin1=x1*w11+x2*w21
-zin2=x1*w21+x2*w22
-print("z1",zin1)
-print("z2",zin2)
-for i in range(0,4):
- if zin1[i]>=theta:
-     y1[i]=1
- else:
-     y1[i]=0
- if zin2[i]>=theta:
-     y2[i]=1
- else:
-     y2[i]=0
-yin=np.array([])
-yin=y1*v1+y2*v2
-for i in range(0,4):
- if yin[i]>=theta:
-     y[i]=1
- else:
-     y[i]=0
-print("yin",yin)
-print('output of net')
-y=y.astype(int)
-print("y",y)
-print("z",z)
+import sqlite3 as sq 
+# Input Agreement ============================================ sInputFileName='D:/MSCIT/ds prac/utility.db' 
+sInputTable='Country_Code' conn = sq.connect(sInputFileName) 
+sSQL='select * FROM ' + sInputTable + ';' 
+InputData=pd.read_sql_query(sSQL, conn) 
+print('Input Data Values ===================================') print(InputData) print('=====================================================') # Processing Rules =========================================== ProcessData=InputData 
+# Remove columns ISO-2-Code and ISO-3-CODE 
+ProcessData.drop('ISO-2-CODE', axis=1,inplace=True) 
+ProcessData.drop('ISO-3-Code', axis=1,inplace=True) 
+# Rename Country and ISO-M49 
+ProcessData.rename(columns={'Country': 'CountryName'}, inplace=True) ProcessData.rename(columns={'ISO-M49': 'CountryNumber'}, inplace=True) 
+# Set new Index 
+ProcessData.set_index('CountryNumber', inplace=True) 
+# Sort data by CurrencyNumber 
+ProcessData.sort_values('CountryName', axis=0, ascending=False, inplace=True) print('Process Data Values =================================') print(ProcessData) print('=====================================================') # Output Agreement =========================================== OutputData=ProcessData sOutputFileName='D:\MSCIT\ds prac\HORUS-CSV-Country.csv' OutputData.to_csv(sOutputFileName, index = False) 
+print('Database to HORUS - Done') 
 
-
+    
         `;
 
         var text5 = `
-X = [[1,1], [1,-1], [-1,1], [-1,-1]]
-print("Inputs = ")
-for x in X:
- print(x)
-Y = [1,-1,-1,-1]
-print("Target = ",Y)
-w = [0,0]
-print("Initial weight values = ", w)
-for i in range(len(X)):
- for j in range(len(w)):
-     w[j] = w[j] + X[i][j] + Y[i]
- print(i, "Iteration, Weight values = ",w)
-
-
-
+(Spyder)
+# Utility Start Picture to HORUS ================================= 
+# Standard Tools 
+import imageio.v2 as imageio 
+# Explicitly use imageio.v2 to avoid deprecation warnings 
+import pandas as pd 
+import matplotlib.pyplot as plt 
+import numpy as np 
+# Input Agreement ============================================ sInputFileName = r'D:\MSCIT\ds prac\Angus.jpg' # Using a raw string for the path InputData = imageio.imread(sInputFileName) 
+print('Input Data Values ===================================') 
+print('X: ', InputData.shape[0]) 
+print('Y: ', InputData.shape[1]) 
+print('Channels (e.g., RGB/RGBA): ', InputData.shape[2]) print('=====================================================') 
+# Processing Rules =========================================== ProcessRawData = InputData.flatten() 
+channels = InputData.shape[2] # Number of color channels (3 for RGB, 4 for RGBA) y = channels + 2 
+x = int(ProcessRawData.shape[0] / y) 
+ProcessData = pd.DataFrame(np.reshape(ProcessRawData, (x, y))) 
+# Define columns based on the number of channels 
+if channels == 3: 
+sColumns = ['XAxis', 'YAxis', 'Red', 'Green', 'Blue'] 
+elif channels == 4: 
+sColumns = ['XAxis', 'YAxis', 'Red', 'Green', 'Blue', 'Alpha'] 
+else: 
+raise ValueError("Unexpected number of channels in the image.") ProcessData.columns = sColumns 
+ProcessData.index.names = ['ID'] 
+print('Rows: ', ProcessData.shape[0]) 
+print('Columns :', ProcessData.shape[1]) print('=====================================================') print('Process Data Values =================================') print('=====================================================') 
+# Display the image 
+plt.imshow(InputData) 
+plt.show() print('=====================================================') 
+# Output Agreement =========================================== OutputData = ProcessData print('Storing File') 
+sOutputFileName = r'D:\MSCIT\ds prac\HORUS-Picture.csv' 
+# Using a raw string for the path OutputData.to_csv(sOutputFileName, index=False) print('=====================================================') print('Picture to HORUS - Done') print('=====================================================') 
+# Utility done ===============================================
+                                     
 `;
 
         var text6 = `
-print("Practical Performed by: Roshni Gupta , Roll No : 09")
-import numpy as np
-import time
-np.set_printoptions(precision=9)
-x=np.zeros((3,))
-weights=np.zeros((3,))
-desired=np.zeros((3,))
-actual=np.zeros((3,))
-for i in range(0,3):
- x[i]=float(input("Initial Inputs:"))
-for i in range(0,3):
- weights[i]=float(input("Initial Weights:"))
-for i in range(0,3):
- desired[i]=float(input("Desired Weights:"))
-for i in range(0,3):
- actual=x[i]*weights
-print("actual",actual)
-print("desired",desired)
-a=float(input("Enter Learning Rate:"))
-while True:
- if np.array_equal(desired,actual):
-     break #no change
- else:
-     for i in range(0,3):
-         weights[i]=weights[i]+a*(desired[i]-actual[i])
-         actual=x[i]*weights
-         print("Weights",weights)
-         print("Actual",actual)
-         print("desired",desired)
-print("FINAL OUTPUT")
-print("Corrected Weights",weights)
-print("Actual",actual)
-print("desired",desired)
-    
+# Utility Start Movie to HORUS (Part 1) ====================== 
+# Standard Tools 
+import os 
+import shutil 
+import cv2 
+# Input and Output Directories 
+sInputFileName = r'D:\MSCIT\ds prac\Dog.mp4' 
+# Use raw string for Windows path sDataBaseDir = r'D:\MSCIT\ds prac\temp' 
+# Use raw string for Windows path 
+# Clear and recreate the output directory 
+if os.path.exists(sDataBaseDir): 
+shutil.rmtree(sDataBaseDir) 
+os.makedirs(sDataBaseDir, exist_ok=True) print('=====================================================') print('Start Movie to Frames') print('=====================================================') 
+# Open the video file 
+vidcap = cv2.VideoCapture(sInputFileName) 
+success, image = vidcap.read() 
+count = 0 
+while success and count <= 100: # Stop after 100 frames 
+# Frame file name 
+sFrame = os.path.join(sDataBaseDir, f'dog-frame-{count:04d}.jpg') 
+# Save frame as image 
+if success: 
+cv2.imwrite(sFrame, image) 
+print('Extracted:', sFrame) 
+# Remove empty frames if any (file size check) 
+if os.path.getsize(sFrame) == 0: 
+os.remove(sFrame) 
+print('Removed empty frame:', sFrame) 
+# Read next frame success, image = vidcap.read() count += 1 print('=====================================================') print('Generated:', count, 'Frames') print('=====================================================') print('Movie to Frames HORUS - Done') print('=====================================================') 
 
+              
 `;
 
 var text7 = `
-import numpy as np
-import decimal
-import math
-np.set_printoptions(precision=4)
-v1=np.array([0.6,-0.3])
-v2=np.array([-0.1,0.4])
-w=np.array([-0.2,0.4,0.1])
-b=np.array([0.3,0.5])
-x=np.array([0,1])
-alpha=0.25
-zin=[]
-print("calculate net input to z layer")
-for i in range (0,2):
- zin.append(round(b[i]+
- x[0]*v1[i]+x[1]*v2[i],4))
-print("zin=",zin)
-z=[]
-print("Apply activation function to calculate output")
-for i in range(0,2):
- z.append(round(1/(1+math.exp(-zin[i])),4))
-print("z=",z)
-print("calculate net input to output layer")
-yin=w[0]+z[0]*w[1]+z[1]*w[2]
-print("yin=",yin)
-print("calculate net output")
-y=round(1/(1+math.exp(-yin)),4)
-print("y=",y)
-fyin=y*(1-y)
-dk=round((1-y)*fyin,4)
-print("dk",dk)
-dw1=alpha*dk*z[0]
-dw2=alpha*dk*z[1]
-dw0=alpha*dk
-print("compute error portion in delta")
-din=[]
-for i in range(1,3):
- din.append(dk*w[i])
-print("din=",din)
-fzin=[]
-d=[]
-print("error in delta")
-for i in range(0,2):
- fzin.append(round(z[i]*(1-z[i]),4))
- d.append(round(din[i]*fzin[i],4))
-print("fzin=",fzin)
-print("d=",d)
-dv=[[0,0],[0,0],[0,0]]
-print("change in weights between input and hidden layer")
-for i in range(0,3):
- for j in range(0,2):
-     if i<=1:
-         dv[i][j]=alpha*d[j]*x[i]
- else:
-     dv[i][j]=alpha*d[j]
-print(dv)
-print("Final weights of network")
-for i in range(0,2):
- v1[i]=v1[i]+dv[0][i]
-print("v1=",v1)
-for i in range(0,2):
- v2[i]=v2[i]+dv[1][i]
-print("v2=",v2)
-for i in range(0,2):
- b[i]=b[i]+dv[1][i]
-print("b=",b)
-w[1]=w[1]+dw1
-w[2]=w[2]+dw2
-w[0]=w[0]+dw0
-print("w=",w)
-
+# Utility Start Audio to HORUS =============================== 
+# Standard Tools  
+from scipy.io import wavfile 
+import pandas as pd 
+import matplotlib.pyplot as plt 
+import numpy as np  
+def show_info(aname, a, r): 
+print('----------------') 
+print("Audio:", aname) 
+print('----------------') 
+print("Rate:", r) 
+print('----------------') 
+print("Shape:", a.shape) 
+print("Dtype:", a.dtype) 
+print("Min, Max:", a.min(), a.max()) print('----------------') 
+plot_info(aname, a, r) #============================================================def plot_info(aname, a, r): 
+sTitle = 'Signal Wave - ' + aname + ' at ' + str(r) + ' Hz' 
+plt.title(sTitle) 
+sLegend = [] 
+for c in range(a.shape[1]): 
+sLabel = 'Ch' + str(c + 1) 
+sLegend.append(sLabel) 
+plt.plot(a[:, c], label=sLabel) 
+plt.legend(sLegend) 
+plt.show()
+#=======================================================
+# Process Audio File Function 
+def process_audio_file(file_path, output_csv, channel_count):         print('=====================================================') print('Processing : ', file_path) print('=====================================================') InputRate, InputData = wavfile.read(file_path) 
+show_info(f"{channel_count} channel", InputData, InputRate) 
+ProcessData = pd.DataFrame(InputData) 
+sColumns = [f'Ch{i+1}' for i in range(channel_count)] 
+ProcessData.columns = sColumns 
+try: 
+ProcessData.to_csv(output_csv, index=False) 
+print(f'Saved CSV file: {output_csv}') 
+except PermissionError: 
+print(f"Permission denied for file: {output_csv}. Please close the file if open and try again.")
+#======================================================= 
+# Process each audio file 
+process_audio_file(r'D:\MSCIT\ds prac\2ch-sound.wav', r'D:\MSCIT\ds prac\HORUSAudio-2ch.csv', 2) 
+process_audio_file(r'D:\MSCIT\ds prac\4ch-sound.wav', r'D:\MSCIT\ds prac\HORUSAudio-4ch.csv', 4) 
+process_audio_file(r'D:\MSCIT\ds prac\6ch-sound.wav', r'D:\MSCIT\ds prac\HORUSAudio-6ch.csv', 6) 
+process_audio_file(r'D:\MSCIT\ds prac\8Ch-sound.wav', r'D:\MSCIT\ds prac\HORUSAudio-8ch.csv', 8) print('=====================================================') print('Audio to HORUS - Done') print('=====================================================') #============================================================
 
 
 `;
 
 var text8= `
-import numpy as np
-import matplotlib.pyplot as plt
-fig, ax = plt.subplots()
-xmin, xmax = -0.2, 1.4
-ymin, ymax = -0.1, 1.1
-X = np.arange(xmin, xmax, 0.1)
-ax.scatter(0, 0, color="r")
-ax.scatter(0, 1, color="r")
-ax.scatter(1, 0, color="r")
-ax.scatter(1, 1, color="g")
-ax.set_xlim([xmin, xmax])
-ax.set_ylim([ymin, ymax])
-m, c = -1, 1.2
-ax.plot(X, m * X + c)
-plt.show()
+# Program to Demonstrate Fixers utilities
+import string
+import datetime as dt
 
+# 1. Removing leading and lagging spaces from data entry
+baddata = "  Data Science with too many spaces is bad!!!"
+print('>', baddata, '<')  # Original data with spaces
+cleandata = baddata.strip()
+print('>', cleandata, '<')  # Cleaned data without spaces
+
+# 2. Removing nonprintable characters from data entry
+printable = set(string.printable)
+baddata = "Data\x00science with\x02 funny characters is \x10bad!!!"
+cleandata = "".join(filter(lambda x: x in printable, baddata))
+print('Bad Data: ', baddata)
+print('Clean Data: ', cleandata)
+
+# 3. Reformatting data entry to match specific formatting criteria (convert YYYY-MM-DD to DD Month YYYY)
+baddate = dt.date(2019, 10, 31)
+baddata = format(baddate, '%Y-%m-%d')  # Original date format
+gooddate = dt.datetime.strptime(baddata, '%Y-%m-%d')  # Parse to datetime object
+gooddata = format(gooddate, '%d-%B-%Y')  # Reformat to desired format
+print('Bad Data: ', baddata)
+print('Clean Data: ', gooddata
+
+                             
 `;
 var text9= `
-disp("Practical Performed by: Roshni Gupta , Roll No : 09")
-function [yin, y]=net(j, w, x, temp, theta, yin, y)
- yin=yin
- y=y
- for i=1:4
- temp=temp+(y(i)*w(i,j));
- end
- yin(j)=x1(j)+temp;
- if(yin(j)>theta)
- y(j)=1;
- elseif(yin(j)==theta)
- y(j)=yin(j);
- else
- y(j)=-1
- end
- disp(yin)
- disp(y)
-endfunction
-disp("Discreate Hopfield Network");
-theta=0;
-x=[1 1 1 -1]
-w=x'*x
-disp("Weight matrix with self connection")
-disp(w);
-for i=1:4
-for j=1:4
- if(i==j)
- w(i,j)=0
- end
-end
-end
-disp("Weight matrix with no self connection");
-disp(w);
-disp("Given input pattern for testing");
-x1=[1 1 1 -1]
-y=[1 1 1 -1]
-temp=0;
-disp("By asynchronous updation method");
-disp("The net input calculated is :");
-yin=[0 0 0 0]
-[yin,y]= net(1,w,temp,theta,yin,y)
-[yin,y]= net(4,w,temp,theta,yin,y)
-[yin,y]= net(3,w,temp,theta,yin,y)
-[yin,y]= net(2,w,temp,theta,yin,y)
-disp("The output calculated from net input is :")
-disp (y)
+# Data Binning and Bucketing
+import numpy as np
+import matplotlib.mlab as mlab
+import matplotlib.pyplot as plt
+import scipy.stats as stats
+np.random.seed(0)
+#example data
+mu=90#mean of distribution
+sigma=25#sd of deviation
+x=mu+sigma*np.random.randn(5000)
+num_bins=25
+fig,ax=plt.subplots()
+
+#the histogram of the data
+n, bins, patches = ax.hist(x, num_bins, density=1)
+
+#add a best-fit line
+y=stats.norm.pdf(bins,mu,sigma)
+ax.plot(bins,y,'--')
+ax.set_xlabel('Example Data')
+ax.set_ylabel('Probability Density')
+sTitle = r'Histogram '+str(len(x)) + 'entries intro' + str(num_bins) + 'Bins:$\mu=' +str(mu) +'$,$\sigma=' + str(sigma) + '$'
+ax.set_title(sTitle)
+fig.tight_layout()
+sPathFig='C:/Users/NANDINI/OneDrive/Documents/Roshni/Java/Histogram.png'
+fig.savefig(sPathFig)
+plt.show()
 
 
 `;
 
 var text10= `
-disp("Practical Performed by: Roshni Gupta , Roll No : 09")
-clear all;
-disp('Kohonen self organizing feature maps');
-disp('The input patterns are')
-x=[0 0 1 1; 1 0 0 0; 0 1 1 0; 0 0 0 1]
-alpha=0.5;
-disp('Since we have 4 input pattern and cluster unit to be formed is 2, the weight matrix is');
-w=[0.2 0.9;0.4 0.7; 0.6 0.5; 0.8 0.3]
-disp('The Learning rate of this epoch is');
-alpha
-i=1;
-j=1;
-k=1;
-m=1;
-while(k<=4)
-for j=1:2
- temp=0;
- for i=1:4
- temp=temp + ((w(i,j)-x(k,i))^ 2);
- end
- D(j)=temp
-end
-if(D(1)<D(2))
- J=1;
-else
- J=2
-end
-disp('The winning unit is');
-disp(J)
-disp('Weight updation');
-for m=1:4
- w(m,J)=w(m,J)+(alpha*(x(k,m)-w(m,J)));
- end
-disp(w)
-k=k+1;
-disp(k)
-end
+# Averaging of Data
+import pandas as pd
+
+# Input and Output file paths
+InputFileName = 'C:/Users/NANDINI/OneDrive/Documents/Roshni/Projects/Python_Diwali_Sales_Analysis/Diwali Sales Data.csv'
+OutputFileName = 'C:/Users/NANDINI/OneDrive/Documents/Roshni/Projects/Python_Diwali_Sales_Analysis/Diwali_Sales_Data_Avg.csv'
+
+Base = 'C:/Users/NANDINI'
+print('#################')
+print('Working Base: ', Base, 'using')
+print('#################')
+
+# Use the InputFileName directly since it already contains the full path
+sFileName = InputFileName
+print('Loading: ', sFileName)
+
+# Read the CSV file with specified columns
+IP_DATA_ALL = pd.read_csv(
+    sFileName,
+    header=0,
+    low_memory=False,
+    usecols=['User_ID', 'Cust_name', 'Product_ID', 'Gender'],
+    encoding="latin-1"
+)
+
+# Rename columns for consistency
+IP_DATA_ALL.rename(columns={'Customer Name': 'Cust_name'}, inplace=True)
+
+# Select specific columns
+AllData = IP_DATA_ALL[['User_ID', 'Cust_name', 'Gender']]
+
+# Print all data
+print(AllData)
+
+# Group by 'Country' and 'Place_Name' and calculate the mean of 'Latitude'
+MeanData = AllData.groupby(['User_ID', 'Cust_name'])['Product_ID'].mean()
+
+# Print the grouped mean data
+print(MeanData)
+
+# Optionally save the output to a new file
+MeanData.to_csv(OutputFileName, header=True)
+print('Processed data saved to:', OutputFileName)
 
 
+    
 `;
 
 var text11= `
-clear all;
-disp('Name: Roshni Gupta, Roll no.: 09');
-disp('Adaptive Resonance Theory Network 1');
-L=2;
-m=3;
-n=4;
-rho=0.4;
-te=L/(L-1+n);
-te=te/2;
-b=[te te te;te te te;te te te;te te te];
-t=ones(3,4);
-s=[1 1 0 0;0 0 0 1;1 0 0 0;0 0 1 1];
-e=1
-while(e<=4)
- temp=0;
- for i=1:4
- temp=temp+s(e,i);
- end
- ns=temp;
- x(e,:)=s(e,:);
- for i=1:3
- temp=0;
- for j=1:4
- temp=temp+(x(e,j)*b(j,i));
- end
- yin(i)=temp;
- end
- j=1;
- if (yin(j)>=yin(j+1)& yin(j)>= yin(j+2)) then
- J=1;
- elseif (yin(j+1)>= yin(j) & yin(j+1)>=yin(j+2))
-j=2;
- else
- J=3;
- end
- disp("J=");
- disp(J);
- for i=1:4
- x1(i)=x(e,i)*t(J,i);
- end
- x1;
- temp=0;
- for i=1:4
- temp=temp+x1(i);
- end
- nx=temp;
- m=nx/ns;
- if(m<rho)
- yin(J)=-1
- j=1;
- if (yin(j)>=yin(j+1)& yin(j)>= yin(j+2)) then
- J=1;
- elseif (yin(j+1)>= yin(j) & yin(j+1)>=yin(j+2))
- J=2;
- else
- J=3;
- end
-end
-for i=1:4
- temp=0;
- temp=L-1+nx;
- b(i,J)=(L*x1(i))/temp;
-end
-disp("b=");
-disp(b)
-for i=1:4
- t(J,i)=x1(i);
-end
-disp("t=");
-disp(t)
-e=e+1;
-end
+import pandas as pd
+
+# Input and Output filenames
+InputFileName = "Diwali Sales Data.csv"
+OutputFileName = "Retrieve_Outliers.csv"
+Base = "C:/Users/NANDINI/OneDrive/Documents/Roshni/Projects/Python_Diwali_Sales_Analysis"
+
+print("############################################")
+print("Working Base :", Base)
+print("############################################")
+
+# Load the input file with the correct path
+file_path = f"{Base}/{InputFileName}"
+print("Loading :", file_path)
+data = pd.read_csv(file_path, encoding='latin-1')
+
+# Assuming we are focusing on a specific column for outliers (e.g., 'Amount')
+column_to_analyze = 'Amount'
+
+# Grouping data (if required)
+MeanData = data[column_to_analyze].mean()
+StdData = data[column_to_analyze].std()
+
+print("Outliers")
+UpperBound = MeanData + StdData
+LowerBound = MeanData - StdData
+
+print("Higher than ", UpperBound)
+OutliersHigher = data[data[column_to_analyze] > UpperBound]
+print(OutliersHigher)
+
+print("Lower than ", LowerBound)
+OutliersLower = data[data[column_to_analyze] < LowerBound]
+print(OutliersLower)
+
+# Combine and export outliers
+Outliers = pd.concat([OutliersHigher, OutliersLower])
+Outliers.to_csv(f"{Base}/{OutputFileName}", index=False)
+
 `;
-
-
 var text12= `
-print("Practical No 7A: Membership and Identity Operators (in, not in)")
-def overlapping(list1, list2):
-    for i in range(0, len(list1)):
-        for j in range(0, len(list2)):
-            if list1[i] == list2[j]:
-                return 1
-    return 0 
-list1 = [2, 3, 4, 5]
-list2 = [6, 7, 8, 9]
-if overlapping(list1, list2):
-    print("Overlapping elements found.")
-else:
-    print("No overlapping elements.")
+import sys
+import os
+import logging
+import uuid
+import shutil
+import time
 
+###############################################################
+Base="C:/Users/NANDINI/OneDrive/Documents/Roshni/Projects"
+
+###############################################################
+sCompanies=['01-Vermeulen','02-Krennwallner','03-Hillman','04-Clark']
+sLayers=['01-Retrieve','02-Assess','03-Process','04-Transform','05-Organise','06-Report']
+sLevels=['debug','info','warning','error']
+
+for sCompany in sCompanies:
+    sFileDir=Base + '/' + sCompany
+    if not os.path.exists(sFileDir):
+        os.makedirs(sFileDir)
+    for sLayer in sLayers:
+        log = logging.getLogger() # root logger
+        for hdlr in log.handlers[:]: # remove all old handlers
+            log.removeHandler(hdlr)
+        #######################################################
+        sFileDir=Base + '/' + sCompany + '/' + sLayer + '/Logging'
+        if os.path.exists(sFileDir):
+            shutil.rmtree(sFileDir)
+        time.sleep(2)
+        os.makedirs(sFileDir)
+
+        skey=str(uuid.uuid4())
+        sLogFile=Base + '/' + sCompany + '/' + sLayer + '/Logging/Logging_'+skey+'.log'
+        print('Set up:', sLogFile)
+        
+        # set up logging to file
+        logging.basicConfig(level=logging.DEBUG,
+                            format='%(asctime)s %(name)-12s %(levelname)-8s %(message)s',
+                            datefmt='%m-%d %H:%M',
+                            filename=sLogFile,
+                            filemode='w')
+
+        # define a Handler which writes INFO messages or higher to the sys.stderr
+        console = logging.StreamHandler()
+        console.setLevel(logging.INFO)
+        # set a format which is simpler for console use
+        formatter = logging.Formatter('%(name)-12s: %(levelname)-8s %(message)s')
+        # tell the handler to use this format
+        console.setFormatter(formatter)
+        # add the handler to the root logger
+        logging.getLogger().addHandler(console)
+        
+        # Now, we can log to the root logger, or any other logger
+        logging.info('Practical Data Science is fun!.')
+        
+        for sLevel in sLevels:
+            sApp='Application-'+ sCompany + '-' + sLayer + '-' + sLevel
+            logger = logging.getLogger(sApp)
+            if sLevel == 'debug':
+                logger.debug('Practical Data Science logged a debugging message.')
+            if sLevel == 'info':
+                logger.info('Practical Data Science logged information message.')
+            if sLevel == 'warning':
+                logger.warning('Practical Data Science logged a warning message.')
+            if sLevel == 'error':
+                logger.error('Practical Data Science logged an error message.')
 `;
-
 var text13= `
-print("Practical No 7B :Membership and identity Operators is,not is")
-print("Practical perform by Roll No :09,Roshni Gupta")
-print("Use of 'is' identity operator")
-x=5
-if(type(x) is int):
- 	print("True")
-else:
- print("False")
-# Python program to illustrate the use of 'is not' identity operator
-print("\n \n use of 'is not' identity operator")
-x=5.2
-if(type(x) is not int):
- 	print("True")
-else:
- 	print("False")
+(R)
+library(readr) 
+IP_DATA_ALL<- read_csv("C:/Users/Dell/OneDrive/Desktop/DSPractical/IP_DATA_ALL.csv") View(IP_DATA_ALL) 
+spec(IP_DATA_ALL) 
+library(tibble) 
+set_tidy_names(IP_DATA_ALL,syntactic = TRUE,quiet = FALSE) IP_DATA_ALL_FIX=set_tidy_names(IP_DATA_ALL,syntacti c=TRUE,quiet=FALSE) sapply(IP_DATA_ALL_FIX,typeof) 
+library(data.table) hist_country=data.table(Country=unique(IP_DATA_ALL_FIX[i s.na(IP_DATA_ALL_FIX['Country'])==0,]$Country))
+setorder(hist_country,'Country') hist_country_with_id=rowid_to_column(hist_country,var="Row IDCountry") IP_DATA_COUNTRY_FREQ=data.table(with(IP_DATA_AL L_FIX,table(Country))) View(IP_DATA_COUNTRY_FREQ) sapply(IP_DATA_ALL_FIX[,'Latitude'],min,na.rm=TRUE) sapply(IP_DATA_ALL_FIX[,'Country'],min,na.rm=TRUE) sapply(IP_DATA_ALL_FIX[,'Latitude'],max,na.rm=TRUE) sapply(IP_DATA_ALL_FIX[,'Country'],max,na.rm=TRUE) sapply(IP_DATA_ALL_FIX[,'Latitude'],mean,na.rm=TRUE) sapply(IP_DATA_ALL_FIX[,'Latitude'],median,na.rm=TRUE) sapply(IP_DATA_ALL_FIX[,'Latitude'],quantile,na.rm=TRUE sapply(IP_DATA_ALL_FIX[,'Latitude'],range,na.rm=TRUE) sapply(IP_DATA_ALL_FIX[,'Latitude'],sd,na.rm=TRUE) sapply(IP_DATA_ALL_FIX[,'Longitude'],sd,na.rm=TRUE)
 
 `;
-
 var text14= `
-import fuzzywuzzy
-from fuzzywuzzy import fuzz
-print("Practical perform by Roll No :09,Roshni Gupta")
-Str_A ='Fuzzywuzzy is a lifesaver!'
-Str_B ='fuzzy wuzzy is a LIFE SAVER.'
-ratio = fuzz.ratio(Str_A.lower(), Str_B.lower())
-print('Similariy score: {}' .format(ratio))
-Str_A ='Chicago Illinois'
-Str_B ='chicago'
-ratio = fuzz.partial_ratio(Str_A.lower(), Str_B.lower())
-print('partial_ratio: {}' .format(ratio))
-Str_A ='Gunner William kline'
-Str_B ='Kline, Gunner William'
-ratio = fuzz.token_sort_ratio(Str_A, Str_B)
-print('token_sort_ratio: {}' .format(ratio))
-Str_A ='The 300 meter steepliechase winner, Soufiane E1 Bakkali'
-Str_B ='Soufiane E1 Bakkali'
-ratio = fuzz.token_set_ratio(Str_A, Str_B)
-print('token_set_ratio: {}' .format(ratio))
+import sys 
+import os import pandas as pd 
+sFileName="C:/Users/Dell/OneDrive/Desktop/DS Practical/IP_DATA_ALL.csv" IP_DATA_ALL=pd.read_csv(sFileName,header=0,low_memor y=False,encoding="latin-1") 
+sFileDir="C:/Users/Dell/OneDrive/Desktop/DS Practical" if not os.path.exists(sFileDir):
+os.makedirs(sFileDir) 
+print('Rows:',IP_DATA_ALL.shape[0]) 
+print('Columns:',IP_DATA_ALL.shape[1]) 
+print('Raw Data') 
+for i in range(0,len(IP_DATA_ALL.columns)):
+print(IP_DATA_ALL.columns[i],
+type(IP_DATA_ALL.columns [i])) 
+print('Fixed Data') IP_DATA_ALL_FIX=IP_DATA_ALL 
+for i in range(0,len(IP_DATA_ALL.columns)):
+cNameOld=IP_DATA_ALL_FIX.columns[i]+' ' cNameNew=cNameOld.strip().replace(" ",".") IP_DATA_ALL_FIX.columns.values[i]=cNameNew
+print(IP_DATA_ALL.columns[i],type(IP_DATA_ALL.columns [i]))
+print(IP_DATA_ALL_FIX.head()) print('Fixed Data Set with ID') IP_DATA_ALL_with_ID=IP_DATA_ALL_FIX IP_DATA_ALL_with_ID.index.names=['RowID'] sFileName2='C:/Users/Dell/OneDrive/Desktop/DS Practical/Retrieve_IP_DATA.csv' IP_DATA_ALL_with_ID.to_csv(sFileName2,index=True,enco ding="latin-1")
+
 
 `;
 var text15= `
-import numpy as np
-import skfuzzy as fuzz
-from skfuzzy import control as ctrl
-quality = ctrl.Antecedent(np.arange(0,11,1),'quality')
-service = ctrl.Antecedent(np.arange(0,11,1),'service')
-tip = ctrl.Consequent(np.arange(0,26,1),'tip')
-#Auto-membership function population is possible with .automf(3,5 or 7)
-quality.automf(3)
-service.automf(3)
-#Custom membership functions can be built interactively with a familiar,
-#pythonic API
-tip['low'] = fuzz.trimf(tip.universe, [0,0,13])
-tip['medium'] = fuzz.trimf(tip.universe,[0,13,25])
-tip['high']= fuzz.trimf(tip.universe,[13,25,25])
-quality.view()
-service.view()
-tip.view()
-rule1 = ctrl.Rule(quality['poor'] | service['poor'], tip['low'])
-rule2 = ctrl.Rule(service['average'], tip['medium'])
-rule3 = ctrl.Rule(service['good'] | quality['good'], tip['high'])
-rule1.view()
-#defined rules, we can simply create a control system via
-tipping_ctrl = ctrl.ControlSystem([rule1, rule2, rule3])
-tipping = ctrl.ControlSystemSimulation(tipping_ctrl)
-# Pass inputs to the ControlSystem using Antecedent labels with Pythonic API
-# Note: if you like passing many inputs all at once, use .inputs(dict_of_data)
-tipping.input['quality'] = 6.5
-tipping.input['service'] = 9.8
-# Crunch the numbers
-tipping.compute()
-tip.view(sim=tipping)
+(R)
+library(readr) 
+library(data.table) 
+FileName <- "C:/Users/Dell/OneDrive/Desktop/DS Practical/IP_DATA_ALL_1.csv" IP_DATA_ALL <- read_csv(FileName) 
+hist_country <- data.table(Country = unique(IP_DATA_ALL$Country)) 
+pattern_country <- data.table(Country = hist_country$Country, PatternCountry = hist_country$Country) 
+oldchar <- c(letters, LETTERS, "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", " ", "~", "!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "-", "_", "=", "+", "{", "}", "[", "]", "|", "\\", ":", ";", "'", "\"", "<", ",", ".", ">", "/", "?") 
+newchar <- rep("A", length(letters) + length(LETTERS)) # For letters 
+newchar <- c(newchar, rep("N", 10)) # For digits
+newchar <- c(newchar, "b", rep("u", length(oldchar) - length(letters) - length(LETTERS) - 10 - 1)) # For space and special characters
+translation_table <- setNames(newchar, oldchar) 
+replace_chars <- function(s, translation_table) { 
+for (old in names(translation_table)) { 
+s <- chartr(old, translation_table[old], s) 
+}
+return(s) 
+} 
+pattern_country[, PatternCountry := sapply(PatternCountry, replace_chars, translation_table)] 
+View(pattern_country)
+
 
 `;
+var text16= `
+import sys 
+import os 
+import pandas as pd 
+sFileName='C:/Users/Dell/OneDrive/Desktop/DS Practical/IP_DATA_ALL.csv' IP_DATA_ALL=pd.read_csv(sFileName) 
+sFileDir='C:/Users/Dell/OneDrive/Desktop/DS Practical' 
+if not os.path.exists(sFileDir): 
+os.makedirs(sFileDir) 
+print('Rows:', IP_DATA_ALL.shape[0]) 
+print('Columns:', IP_DATA_ALL.shape[1]) 
+print(' Raw Data Set ') 
+for i in range(0,len(IP_DATA_ALL.columns)):
+print(IP_DATA_ALL.columns[i],
+type(IP_DATA_ALL.columns [i])) print(' Fixed Data Set ') IP_DATA_ALL_FIX=IP_DATA_ALL 
+for i in range(0,len(IP_DATA_ALL.columns)): 
+cNameOld=IP_DATA_ALL_FIX.columns[i] + ' '
+cNameNew=cNameOld.strip().replace(' ', '.') 
+IP_DATA_ALL_FIX.columns.values[i] = cNameNew print(IP_DATA_ALL.columns[i],
+type(IP_DATA_ALL.columns [i])) 
+print('Fixed Data Set with ID')
+IP_DATA_ALL_with_ID=IP_DATA_ALL_FIX 
+IP_DATA_ALL_with_ID.index.names = ['RowID'] print(' Done!! ')
+
+`;
+
+var text17= `
+import pandas as pd 
+from sklearn.preprocessing 
+import StandardScaler 
+url = 'https://archive.ics.uci.edu/ml/machine-learningdatabases/iris/iris.data' 
+df = pd.read_csv(url, header=None, names=['sepal_length', 'sepal_width', 'petal_length', 'petal_width', 'species']) 
+print("First few rows of the dataset:") 
+print(df.head()) 
+print("\nDataFrame info:") 
+print(df.info()) 
+print("\nSummary statistics:") 
+print(df.describe()) 
+missing_values = df.isnull().sum() 
+if missing_values.any():
+print("\nMissing values in the dataset:")
+print(missing_values[missing_values > 0]) 
+else: 
+print("\nNo missing values in the dataset.") 
+duplicates = df.duplicated().sum() 
+print('Total duplicate rows: {duplicates}') 
+df_unique = df.drop_duplicates() 
+print('Unique rows after removing duplicates: {len(df_unique)}') 
+Q1 = df['sepal_length'].quantile(0.25) 
+Q3 = df['sepal_length'].quantile(0.75) 
+IQR = Q3 - Q1 
+outliers = df[(df['sepal_length'] < (Q1 - 1.5 * IQR)) | (df['sepal_length'] > (Q3 + 1.5 * IQR))] print('\nOutliers in sepal_length:\n{outliers}') 
+scaler = StandardScaler() 
+df[['sepal_length', 'sepal_width', 'petal_length', 'petal_width']] = scaler.fit_transform(df[['sepal_length', 'sepal_width', 'petal_length', 'petal_width']]) 
+df = pd.get_dummies(df, columns=['species'], drop_first=True) 
+print("\nFinal check for missing values:") 
+print(df.isnull().sum()) 
+print('\nFinal count of duplicate rows: {df.duplicated().sum()}')
+
+`;
+
+var text18= `
+import pandas as pd; 
+import networkx as nx 
+import matplotlib.pyplot as plt 
+pd.options.mode.chained_assignment = None sInputFileName='C:/Users/Dell/OneDrive/Desktop/DS Practical/Assess-Network-Routing-Company.csv' 
+sOutputFileName1='C:/Users/Dell/OneDrive/Desktop/DS Practical/Organise-Network-Routing-Company.gml' 
+sOutputFileName2='C:/Users/Dell/OneDrive/Desktop/DS Practical/Organise-Network-Routing-Company.png' 
+sFileName=sInputFileName 
+print('Loading :',sFileName) 
+CompanyData=pd.read_csv(sFileName) 
+print(CompanyData.head()) 
+print(CompanyData.shape) 
+G=nx.Graph() 
+for i in range(CompanyData.shape[0]): 
+for j in range(CompanyData.shape[0]): 
+Node0=CompanyData['Company_Country_Name'][i] Node1=CompanyData['Company_Country_Name'][j] 
+if Node0 != Node1: 
+G.add_edge(Node0,Node1) 
+for i in range(CompanyData.shape[0]): 
+Node0=CompanyData['Company_Country_Name'][i] Node1=CompanyData['Company_Place_Name'][i] + '('+CompanyData['Company_Country_Name'][i]+ ')' 
+if Node0 != Node1: 
+G.add_edge(Node0,Node1) 
+print('Nodes:', G.number_of_nodes()) 
+print('Edges:', G.number_of_edges()) 
+sFileName='C:/Users/Dell/OneDrive/Desktop/DS Practical' + sOutputFileName1
+print('Storing :',sFileName) 
+nx.write_gml(G, sOutputFileName1) 
+sFileName='C:/Users/Dell/OneDrive/Desktop/DS Practical' + sOutputFileName2
+print('Storing Graph Image:',sFileName) 
+plt.figure(figsize=(15, 15)) 
+pos=nx.spectral_layout(G,dim=2) 
+nx.draw_networkx_nodes(G,pos, node_color='k', node_size=10, alpha=0.8)
+nx.draw_networkx_edges(G, pos,edge_color='r', arrows=False, style='dashed')
+nx.draw_networkx_labels(G,pos,font_size=12,font_family='sans -serif',font_color='b') 
+plt.axis('off') ;
+plt.savefig(sOutputFileName2,dpi=600) 
+plt.show() 
+print('Done!’)
+
+
+`;
+
+var text19= `
+import networkx as nx 
+import matplotlib.pyplot as plt 
+import os 
+import pandas as pd 
+sInputFileName="C:/Users/Dell/OneDrive/Desktop/DSPractical/Retrieve_Router_Location.csv" 
+sOutputFileName1="C:/Users/Dell/OneDrive/Desktop/DS Practical/Assess-DAG-Company-Country.png" 
+sOutputFileName2="C:/Users/Dell/OneDrive/Desktop/DS Practical/Assess-DAG-Company-Country-Place.png" 
+Company='01-Vermeulen' 
+CompanyData=pd.read_csv(sInputFileName,header=0,low_me mory=False, encoding="latin-1") 
+print('Loaded Company :',CompanyData.columns.values) 
+print(CompanyData) 
+G1=nx.DiGraph() 
+G2=nx.DiGraph() 
+for i in range(CompanyData.shape[0]): 
+G1.add_node(CompanyData['Country'][i]) 
+sPlaceName= CompanyData['Place_Name'][i] + '-' + CompanyData['Country'][i] G2.add_node(sPlaceName) 
+for n1 in G1.nodes(): 
+for n2 in G1.nodes(): 
+if n1 != n2: 
+print('Link :',n1,' to ', n2) 
+G1.add_edge(n1,n2)
+print("Nodes of graph: ") 
+print(G1.nodes()) 
+print("Edges of graph: ")
+print(G1.edges()) 
+sFileDir="C:/Users/Dell/OneDrive/Desktop/DS Practical" 
+if not os.path.exists(sFileDir): 
+os.makedirs(sFileDir) 
+plt.figure(figsize=(10, 6))
+nx.draw(G1,pos=nx.spectral_layout(G1), node_color='r',edge_color='g',with_labels=True,node_size=8000 , font_size=12) plt.savefig(sOutputFileName1) # save as png
+plt.show() # display 
+for n1 in G2.nodes(): 
+for n2 in G2.nodes(): 
+if n1 != n2: 
+print('Link :',n1,' to ', n2) 
+G2.add_edge(n1,n2)
+print("Nodes of graph: ") 
+print(G2.nodes()) 
+print("Edges of graph: ") 
+print(G2.edges()) 
+sFileDir="C:/Users/Dell/OneDrive/Desktop/DS Practical" 
+if not os.path.exists(sFileDir): 
+os.makedirs(sFileDir) 
+plt.figure(figsize=(10, 6)) 
+nx.draw(G2,pos=nx.spectral_layout(G2), node_color='r',edge_color='b',with_labels=True,node_size=8000 , font_size=12) plt.savefig(sOutputFileName2) 
+plt.show()
+
+`;
+var text20= `
+import pandas as 
+df = pd.read_csv("C:/Users/Dell/OneDrive/Desktop/DS Practical/billboard_data.csv") print("Dataset Preview:") 
+print(df.head()) 
+N = 5 top_songs = df.nlargest(N, 'Popularity') 
+print("\nTop Songs for Billboards:") 
+print(top_songs[['Title', 'Artist', 'Genre', 'Popularity']])
+
+
+`;
+
+var text21= `
+import pandas as 
+df = pd.read_csv("C:/Users/Dell/OneDrive/Desktop/DS Practical/hydry.csv") 
+with open('output.gml', 'w') as 
+gml_file: gml_file.write("graph [\n") 
+nodes = set(df['Source']).union(set(df['Target'])) 
+for node in nodes: 
+gml_file.write(f" node [\n") 
+gml_file.write(f" id {node}\n") 
+gml_file.write(f" label \"{node}\"\n") 
+gml_file.write(f" ]\n") 
+for _, row in df.iterrows(): 
+gml_file.write(f" edge [\n") 
+gml_file.write(f" source {row['Source']}\n") 
+gml_file.write(f" target {row['Target']}\n") 
+gml_file.write(f" weight {row['Weight']}\n") 
+gml_file.write(f" ]\n") 
+gml_file.write("]\n")
+print("GML file 'output.gml' created successfully.")
+
+`;
+var text22= `
+
+import pandas as pd 
+import geopy.distance 
+df = pd.read_csv("C:/Users/Dell/OneDrive/Desktop/DS Practical/customer.csv") total_demand = df['Demand'].sum() 
+weighted_latitude = (df['Latitude'] * df['Demand']).sum() / total_demand 
+weighted_longitude = (df['Longitude'] * df['Demand']).sum() / total_demand warehouse_location = {'Latitude': weighted_latitude,'Longitude': weighted_longitude} print("Suggested Warehouse Location (Weighted by Demand):") 
+print(f"Latitude:{warehouse_location['Latitude']},Longitude:{warehouse_location['Longitude']}") 
+for index, row in df.iterrows(): 
+coords_customer = (row['Latitude'], row['Longitude']) 
+coords_warehouse=(warehouse_location['Latitude'],warehouse_location['Longitude']) distance = geopy.distance.distance(coords_customer, coords_warehouse).km print(f"Distance from {row['Location']} to Warehouse: {distance:.2f} km")
+
+
+`;
+var text23= `
+import numpy as np 
+import pandas as pd 
+from sklearn.cluster 
+import KMeans 
+import matplotlib.pyplot as plt 
+from sklearn.preprocessing 
+import StandardScaler ]
+data = pd.read_csv("C:/Users/Dell/OneDrive/Desktop/DS Practical/locations.csv") print(data.head()) 
+X = data[['Latitude', 'Longitude']].values 
+scaler = StandardScaler() 
+X_scaled = scaler.fit_transform(X) 
+wcss = [] 
+for i in range(1, 11): 
+kmeans = KMeans(n_clusters=i, init='k-means++', max_iter=300, n_init=10, random_state=42) 
+kmeans.fit(X_scaled) 
+wcss.append(kmeans.inertia_) 
+plt.plot(range(1, 11), wcss) 
+plt.title('Elbow Method to Determine Optimal k') 
+plt.xlabel('Number of Clusters') 
+plt.ylabel('WCSS') 
+plt.show() 
+optimal_clusters = 3 
+kmeans = KMeans(n_clusters=optimal_clusters, init='kmeans++', max_iter=300, n_init=10, random_state=42) 
+kmeans.fit(X_scaled) 
+centroids = kmeans.cluster_centers_ 
+centroids_original_scale = scaler.inverse_transform(centroids) 
+print("Suggested new warehouse locations (Latitude, Longitude):") 
+for idx, centroid in enumerate(centroids_original_scale, 1): 
+print(f"Location {idx}: Latitude = {centroid[0]}, Longitude = {centroid[1]}") plt.scatter(X_scaled[:, 0], X_scaled[:, 1], c=kmeans.labels_, cmap='viridis', marker='o', label='Locations') 
+plt.scatter(centroids[:, 0], centroids[:, 1], c='red', marker='x', s=200, label='Centroids') plt.title('K-Means Clustering of Locations') 
+plt.xlabel('Latitude (scaled)') 
+plt.ylabel('Longitude (scaled)') 
+plt.legend() 
+plt.show()
+
+
+
+`;
+var text24= `
+import numpy as np 
+import pandas as pd 
+from itertools 
+import permutations 
+import math 
+def haversine(lat1, lon1, lat2, lon2): 
+"""Calculate the great-circle distance between two points on the Earth.""" 
+R = 6371 
+dlat = math.radians(lat2 - lat1) 
+dlon = math.radians(lon2 - lon1) 
+a = (math.sin(dlat / 2)**2+math.cos(math.radians(lat1))*math.cos(math.radians(lat2))* math.sin(dlon / 2) ** 2) 
+c = 2 * math.atan2(math.sqrt(a), math.sqrt(1 - a)) 
+return R * c 
+try: 
+data=pd.read_csv("C:/Users/Dell/OneDrive/Desktop/DSPractical/locations.csv") 
+except FileNotFoundError: 
+print("Error: The file was not found.") 
+exit() 
+if not all(col in data.columns for col in ['Latitude', 'Longitude']): 
+print("Error: The CSV must contain 'Latitude' and 'Longitude' columns.") exit() 
+locations = data[['Latitude', 'Longitude']].values 
+num_locations = len(locations) 
+distance_matrix = np.zeros((num_locations, num_locations)) 
+for i in range(num_locations): 
+for j in range(i + 1, num_locations): 
+distance_matrix[i][j] = haversine(locations[i][0], locations[i][1], locations[j][0], locations[j][1]) distance_matrix[j][i] = distance_matrix[i][j] # Symmetric
+		def total_distance(route, distance_matrix): 
+"""Calculate the total distance for a given route.""" 
+return sum(distance_matrix[route[i], route[i + 1]] for i in range(len(route) - 1)) 
+routes = permutations(range(num_locations)) 
+best_route = None 
+min_distance = float('inf') 
+for route in routes: 
+route = list(route) + [route[0]] # Return to the start 
+distance = total_distance(route, distance_matrix) 
+if distance < min_distance: 
+min_distance = distance 
+best_route = route 
+print("Optimal Shipping Route (visiting each location and returning to the start):") 
+for idx in best_route: 
+print(f"Location {idx + 1}: Latitude = {locations[idx][0]}, Longitude = {locations[idx][1]}") 
+print(f"\nTotal Distance: {min_distance:.2f} km")
+
+
+`;
+var text25= `
+def best_packing_options(container_capacity, weights, values, n): 
+dp = [[0 for x in range(container_capacity + 1)]
+for x in range(n + 1)] for i in range(n + 1): 
+for w in range(container_capacity + 1): 
+if i == 0 or w == 0: 
+dp[i][w] = 0 
+elif weights[i - 1] <= w: 
+dp[i][w] = max(values[i - 1] + dp[i - 1][w - weights[i - 1]], dp[i - 1][w]) 
+else: 
+dp[i][w] = dp[i - 1][w] 
+return dp[n][container_capacity] 
+def find_selected_items(container_capacity, weights, values, n, dp): 
+selected_items = [] 
+w = container_capacity 
+for i in range(n, 0, -1): 
+if dp[i][w] != dp[i - 1][w]: 
+selected_items.append(i) 
+w -= weights[i - 1] 
+return selected_items 
+weights = [10, 20, 30, 40] 
+values = [60, 100, 120, 240] 
+container_capacity = 50 
+n = len(values) 
+max_value = bestt_packing_options(container_capacity, weights, values, n) 
+dp = [[0 for x in range(container_capacity + 1)] 
+for x in range(n + 1)] for i in range(n + 1): 
+for w in range(container_capacity + 1): 
+if i == 0 or w == 0: 
+dp[i][w] = 0 
+elif weights[i - 1] <= w: 
+dp[i][w] = max(values[i - 1] + dp[i - 1][w - weights[i - 1]], dp[i - 1][w])
+else: 
+dp[i][w] = dp[i - 1][w] 
+selected_items = find_selected_items(container_capacity, weights, values, n, dp) print(f"The maximum value that can be packed in the container is: {max_value}") print(f"The items selected to achieve this value are: {selected_items}")
+
+
+`;
+var text26= `
+import math 
+def haversine(lat1, lon1, lat2, lon2): 
+"""Calculate the great-circle distance between two points on the Earth.""" 
+R = 6371.0 # Earth radius in kilometers 
+phi1 = math.radians(lat1) 
+phi2 = math.radians(lat2) delta_
+phi = math.radians(lat2 - lat1) 
+delta_lambda = math.radians(lon2 - lon1) 
+a = math.sin(delta_phi / 2) ** 2 + math.cos(phi1) * math.cos(phi2) * math.sin(delta_lambda / 2) ** 2 
+c = 2 * math.asin(math.sqrt(a)) 
+return R * c 
+def create_delivery_route(locations): 
+"""Create a delivery route based on given locations.""" 
+route = [] total_distance = 0.0 
+for i in range(len(locations) - 1): 
+lat1, lon1 = locations[i] 
+lat2, lon2 = locations[i + 1] 
+distance = haversine(lat1, lon1, lat2, lon2) 
+total_distance += distance route.append((locations[i], locations[i + 1], distance)) 
+return route, total_distance 
+def print_route(route, total_distance): 
+"""Print the delivery route and total distance.""" 
+print("Delivery Route:") 
+for start, end, distance in route:
+	print(f"From {start} to {end}: {distance:.2f} km") 
+print(f"\nTotal Distance: {total_distance:.2f} km") 
+def main(): 
+delivery_locations = [
+ (37.7749, -122.4194),
+ (37.7849, -122.4294),
+ (37.7949, -122.4394),
+ (37.8049, -122.4494) 
+] 
+route, total_distance = create_delivery_route(delivery_locations) 
+print_route(route, total_distance) 
+if __name__ == "__main__": 
+main()
+
+
+`;
+var text27= `
+import requests 
+class ForexTradingPlanner: 
+def _init_(self): 
+pass 
+def get_current_rate(self, base_currency, target_currency): 
+url = f"https://api.exchangerateapi.com/v4/latest/{base_currency}" 
+try: 
+response = requests.get(url) 
+response.raise_for_status() # Raise an error for bad responses 
+data = response.json() 
+if target_currency in data['rates']: 
+return data['rates'][target_currency] 
+else: print(f"Currency {target_currency} not found.") 
+return None 
+except Exception as e: 
+print(f"Error fetching rate: {e}") 
+return None 
+def plan_trade(self, base_currency, target_currency, amount, desired_rate):    current_rate = self.get_current_rate(base_currency, target_currency) 
+if current_rate is not None: 
+print(f"Current rate for {base_currency} to {target_currency}: {current_rate}") 
+if current_rate <= desired_rate: 
+print(f"Consider buying {amount} {target_currency} at the current rate.") 
+else: 
+print(f"The current rate is higher than your desired rate. Hold off on the trade.")
+			else: 
+print("Could not retrieve current exchange rate.") 
+def main(): 
+planner = ForexTradingPlanner() 
+print("Forex Trading Planner") 
+print("=====================") 
+base_currency = input("Enter base currency (e.g., 'USD'): ").upper() 
+target_currency = input("Enter target currency (e.g., 'EUR'): ").upper() 
+amount = float(input("Enter the amount in base currency you want to trade: ")) desired_rate = float(input("Enter your desired exchange rate: ")) 
+print(f"\nPlanning trade for {amount} {base_currency} to {target_currency}...") planner.plan_trade(base_currency, target_currency, amount, desired_rate) 
+if __name__ == "__main__": 
+main()
+
+
+`;
+var text28= `
+import pandas as pd 
+class BalanceSheetProcessor: 
+def __init__(self, file_path): 
+self.file_path = file_path 
+self.data = pd.read_csv(file_path) 
+def validate_data(self): 
+if self.data.isnull().values.any(): 
+print("Data contains missing values. Please check the file.") 
+return False 
+negative_accounts = ['Inventory', 'Accounts Receivable'] 
+negative_entries = self.data[self.data['Account'].isin(negative_accounts) & (self.data['Amount'] < 0)] 
+if not negative_entries.empty: 
+print("Data contains negative amounts for the following accounts:") print(negative_entries) 
+return False 
+return True 
+def process_data(self): 
+if not self.validate_data(): 
+print("Data validation failed. Processing terminated.") 
+return 
+total_assets = self.data[self.data['Account'].str.contains("Cash|Accounts Receivable|Inventory")]['Amount'].sum() 
+total_liabilities = self.data[self.data['Account'].str.contains("Accounts Payable")]['Amount'].sum() 
+total_equity = self.data[self.data['Account'] == 'Equity']['Amount'].values[0] print("\nFinancial Summary:") 
+print(f"Total Assets: {total_assets}") 
+print(f"Total Liabilities: {total_liabilities}") 
+print(f"Total Equity: {total_equity}") 
+def main(): 
+file_path = "C:/Users/Dell/OneDrive/Desktop/DS Practical/balance_sheet.csv" processor = BalanceSheetProcessor(file_path) processor.process_data() 
+if __name__ == "__main__": 
+main() 
+
+
+`;
+var text29= `
+class Employee: 
+def __init__(self,emp_id,name,hours,wage): 
+self.emp_id=emp_id 
+self.name=name 
+self.hours=hours 
+self.wage=wage 
+def calculate_pay(self): 
+return self.hours*self.wage 
+def generate_payroll(employees): 
+total_payroll=0 
+report=[] 
+for emp in employees: 
+pay=emp.calculate_pay() report.append({'ID':emp.emp_id,'Name':emp.name,'Pay':pay}) total_payroll+=pay 
+report.append({'Total Payroll':total_payroll}) 
+return report 
+employees=[
+ Employee(1,'Alice',40,15.00),
+ Employee(2,'Bob',35,20.00),
+ Employee(3,'Charlie',45,18.00) 
+] 
+payroll_report=generate_payroll(employees) 
+for entry in payroll_report: 
+print(entry)
+
+
+`;
+var text30= `
+import os 
+import uuid 
+import pandas as pd 
+import sqlite3 as sq 
+from datetime import datetime, timedelta 
+from pytz import timezone, all_timezones 
+input_dir = 'DS Practical' 
+input_file = 'C:/Users/Dell/OneDrive/Desktop/DS Practical/VehicleData.csv' 
+sDataBaseDir = 'C:/Users/Dell/OneDrive/Desktop/DS Practical' 
+os.makedirs(sDataBaseDir, exist_ok=True) 
+conn1 = sq.connect(os.path.join(sDataBaseDir, 'Hillman.db')) 
+sDataVaultDir = 'C:/Users/Dell/OneDrive/Desktop/DS Practical' os.makedirs(sDataVaultDir, exist_ok=True) 
+conn2 = sq.connect(os.path.join(sDataVaultDir, 'datavault.db')) 
+base = datetime(2018, 1, 1) 
+date_list = [base - timedelta(hours=x) for x in range(1)] 
+time_data = [] 
+for now_utc in date_list: 
+now_utc = now_utc.replace(tzinfo=timezone('UTC'))
+sDateTime = now_utc.strftime("%Y-%m-%d %H:%M:%S") 
+sDateTimeKey = sDateTime.replace(' ', '-').replace(':', '-') 
+time_data.append({ 
+'ZoneBaseKey': 'UTC', 
+'IDNumber': str(uuid.uuid4()), 
+'nDateTimeValue': now_utc, 
+'DateTimeValue': sDateTime, 
+'DateTimeKey': sDateTimeKey 
+}) 
+time_frame = pd.DataFrame(time_data) 
+time_hub = time_frame[['IDNumber', 'ZoneBaseKey', 'DateTimeKey', 'DateTimeValue']].set_index('IDNumber')
+time_hub.to_sql('Process-Time', conn1, if_exists="replace") 
+time_hub.to_sql('Hub-Time', conn2, if_exists="replace") 
+for now_date in time_frame['nDateTimeValue']: 
+for zone in all_timezones: 
+now_utc = now_date.replace(tzinfo=timezone('UTC')) 
+now_zone = now_utc.astimezone(timezone(zone)) 
+sZoneDateTime = now_zone.strftime("%Y-%m-%d %H:%M:%S") 
+time_zone_data = { 
+'ZoneBaseKey': 'UTC', 
+'IDZoneNumber': str(uuid.uuid4()), 
+'DateTimeKey': time_frame['DateTimeKey'][0], 
+'UTCDateTimeValue': now_utc.strftime("%Y-%m-%d %H:%M:%S"), 
+'Zone': zone, 'DateTimeValue': sZoneDateTime 
+} 
+zone_df = pd.DataFrame([time_zone_data]).set_index('IDZoneNumber') zone_df.to_sql(f'Process-Time-{zone.replace("/", "- ").replace(" ", "")}', conn1, if_exists="replace") 
+zone_df.to_sql(f'Satellite-Time-{zone.replace("/", "- ").replace(" ", "")}', conn2, if_exists="replace") 
+for conn in [conn1, conn2]: 
+conn.execute("VACUUM;") 
+print('### Done!! ############################################')
+
+
+`;
+var text31= `
+import pandas as pd 
+import numpy as np 
+from sklearn.preprocessing 
+import MinMaxScaler, StandardScaler, OneHotEncoder 
+data = { 
+'Age': [25, 32, 47, 51, 62], 
+'Income': [50000, 60000, 120000, 100000, 110000], 
+'Gender': ['Male', 'Female', 'Female', 'Male', 'Female'], 
+'Purchased': ['No', 'Yes', 'No', 'Yes', 'Yes'] 
+} 
+df = pd.DataFrame(data) print("Original Data:") 
+print(df) 
+scaler = MinMaxScaler() 
+df[['Age', 'Income']] = scaler.fit_transform(df[['Age', 'Income']]) 
+print("\nNormalized Data (Min-Max Scaling):") 
+print(df) 
+scaler = StandardScaler() 
+df[['Age', 'Income']] = scaler.fit_transform(df[['Age', 'Income']]) 
+print("\nStandardized Data (Z-Score Scaling):") 
+print(df) 
+df['Log_Income'] = np.log(df['Income'] + 1) 
+print("\nData after Log Transformation of 'Income':") 
+print(df) 
+encoder = OneHotEncoder(sparse_output=False) # Change 'sparse' to 'sparse_output' 
+encoded_gender = encoder.fit_transform(df[['Gender']]) 
+encoded_df = pd.DataFrame(encoded_gender, columns=encoder.get_feature_names_out(['Gender'])) df = pd.concat([df, encoded_df], axis=1).drop('Gender', axis=1) 
+print("\nData after One-Hot Encoding 'Gender':") 
+print(df) 
+df['Age_Binned'] = pd.cut(df['Age'], bins=[0, 30, 50, 100], 
+labels=['Young', 'Middle-aged', 'Senior']) 
+print("\nData after Binning 'Age':") 
+print(df)
+
+
+`;
+var text32= `
+import pandas as pd 
+from cryptography.fernet import Fernet 
+data={'Name':['John','Alice','Bob'],'Age':[28,24,30],'Salary':[500 00,60000,55000],'Gender':['Male','Female','Male']} 
+df=pd.DataFrame(data) 
+def horizontal_style(df): 
+print("Horizontal Style Data (Wide Format):") 
+print(df) 
+def vertical_style(df): 
+df_vertical=pd.melt(df,id_vars=['Name'],var_name='Attribute',v alue_name='Value') 
+print("\nVertical Style Data (Long Format):") 
+print(df_vertical) def island_style(df): 
+print("\nIsland Style Data:") 
+grouped=df.groupby('Name') 
+for name,group in grouped: 
+print(f"\nIsland for {name}:") 
+print(group) 
+def secure_vault_style(df,column_to_encrypt): 
+print("\nSecure Vault Style Data (With Encrypted Salary):") 
+key=Fernet.generate_key() 
+cipher_suite=Fernet(key) 
+df['Encrypted_'+column_to_encrypt]=df[column_to_encrypt].ap ply(lambda x:cipher_suite.encrypt(str(x).encode()).decode()) df_secure_vault=df.drop(columns=[column_to_encrypt]) 
+print(df_secure_vault) 
+df_secure_vault['Decrypted_'+column_to_encrypt]=df_secure_vault['Encrypted_'+column_to_encrypt].apply(lambda x:cipher_suite.decrypt(x.encode()).decode()) 
+print("\nDecrypted Salary for Verification:") print(df_secure_vault[['Name','Decrypted_'+column_to_encrypt] ]) 
+horizontal_style(df) 
+vertical_style(df)
+island_style(df) 
+secure_vault_style(df,'Salary')
+
+
+`;
+var text33= `
+import pandas as pd 
+from openpyxl import Workbook 
+from openpyxl.chart import ( 
+PieChart3D, 
+Reference 
+) 
+wb_pie_chart = Workbook() 
+ws_pie_chart = wb_pie_chart.active 
+data = [ 
+("Type of Expense", "Amount Spent"), 
+("Grocery", 300), 
+("Electricity", 150),
+("Child Tuition", 125), 
+("House Keeping", 35), 
+("Gardening", 30), 
+("Misl. Expense", 500), 
+] 
+for row in data: 
+ws_pie_chart.append(row) 
+pie = PieChart3D() 
+labels = Reference(ws_pie_chart, min_col=1, min_row=2, max_row=7) 
+data = Reference(ws_pie_chart, min_col=2, min_row=1, max_row=7) 
+pie.add_data(data, titles_from_data=True) 
+pie.set_categories(labels) pie.title = "Expenditures Pie Chart" 
+ws_pie_chart.add_chart(pie, "C10") 
+wb_pie_chart.save("C:/Users/Dell/OneDrive/Desktop/DS Practical/pie.xlsx") 
+print("data saved")
+
+
+`;
+
+
 function copyText(text) {
     navigator.clipboard.writeText(text).then(function () {
         document.getElementById('copiedMsg').innerHTML = "Text Copied"
